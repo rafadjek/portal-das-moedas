@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Moeda 50 Centavos 1994">
+  <rect width="400" height="400" fill="#1a1a2e"/>
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#c0c0c0" stroke-width="6"/>
+  <circle cx="200" cy="180" r="95" fill="none" stroke="#c0c0c0" stroke-width="2"/>
+  <text x="200" y="170" text-anchor="middle" font-family="Georgia, serif" font-size="60" font-weight="bold" fill="#c0c0c0">50¢</text>
+  <text x="200" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#c0c0c0">1994</text>
+  <text x="200" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#c0c0c0">Moeda 50 Centavos 1994</text>
+</svg>

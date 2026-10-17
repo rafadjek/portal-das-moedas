@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Kit colecionador: fichário e lupa">
+  <rect width="400" height="400" fill="#16213e"/>
+  <g fill="none" stroke="#ffd700" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fichário / álbum de moedas -->
+    <rect x="60" y="90" width="200" height="240" rx="8"/>
+    <line x1="90" y1="90" x2="90" y2="330"/>
+    <circle cx="75" cy="130" r="5"/>
+    <circle cx="75" cy="200" r="5"/>
+    <circle cx="75" cy="270" r="5"/>
+    <!-- Pastilhas de moeda no fichário -->
+    <circle cx="150" cy="150" r="26"/>
+    <circle cx="225" cy="150" r="26"/>
+    <circle cx="150" cy="230" r="26"/>
+    <circle cx="225" cy="230" r="26"/>
+    <circle cx="150" cy="150" r="18" stroke-width="1.5"/>
+    <circle cx="225" cy="150" r="18" stroke-width="1.5"/>
+    <circle cx="150" cy="230" r="18" stroke-width="1.5"/>
+    <circle cx="225" cy="230" r="18" stroke-width="1.5"/>
+    <!-- Lupa -->
+    <circle cx="290" cy="250" r="55"/>
+    <circle cx="290" cy="250" r="42" stroke-width="1.5"/>
+    <line x1="330" y1="290" x2="375" y2="335" stroke-width="8"/>
+    <!-- Brilho da lente -->
+    <path d="M265 225 Q275 215 288 213" stroke-width="2"/>
+  </g>
+  <text x="200" y="372" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#ffd700" letter-spacing="2">KIT COLECIONADOR</text>
+</svg>

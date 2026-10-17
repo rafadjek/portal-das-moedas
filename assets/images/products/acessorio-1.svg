@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Álbum para Moedas 120 Bolsos">
+  <rect width="400" height="400" fill="#16213e"/>
+  <rect x="90" y="70" width="220" height="220" rx="10" fill="none" stroke="#ffd700" stroke-width="5"/>
+  <line x1="120" y1="70" x2="120" y2="290" stroke="#ffd700" stroke-width="3"/>
+  <circle cx="160" cy="130" r="16" fill="none" stroke="#ffd700" stroke-width="2"/>
+  <circle cx="240" cy="130" r="16" fill="none" stroke="#ffd700" stroke-width="2"/>
+  <circle cx="160" cy="180" r="16" fill="none" stroke="#ffd700" stroke-width="2"/>
+  <circle cx="240" cy="180" r="16" fill="none" stroke="#ffd700" stroke-width="2"/>
+  <circle cx="160" cy="230" r="16" fill="none" stroke="#ffd700" stroke-width="2"/>
+  <circle cx="240" cy="230" r="16" fill="none" stroke="#ffd700" stroke-width="2"/>
+  <text x="200" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#ffd700">Álbum 120 Bolsos</text>
+</svg>

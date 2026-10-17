@@ -1,0 +1,11 @@
+# Portal das Moedas - robots.txt
+# Permite a indexação completa do site pelos buscadores.
+
+User-agent: *
+Allow: /
+
+# Bloqueia áreas que não devem ser indexadas
+Disallow: /src/data/
+
+# Sitemap
+Sitemap: https://rafadjek.github.io/portal-das-moedas/sitemap.xml

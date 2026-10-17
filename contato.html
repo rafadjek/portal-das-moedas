@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contato — MundoMoedas</title>
+<meta name="description" content="Fale com o MundoMoedas. Atendimento especializado para tirar dúvidas sobre moedas, estado de conservação, frete e pedidos. Segunda a sexta, das 9h às 18h.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mundomoedas.com.br/contato.html">
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  .contato { display:grid; grid-template-columns:1fr 1.15fr; gap:3.5rem; align-items:start; }
+  @media (max-width:900px){ .contato { grid-template-columns:1fr; gap:2.5rem; } }
+
+  .canais { display:grid; gap:1rem; }
+  .canal {
+    display:flex; gap:1.1rem; align-items:flex-start;
+    padding:1.4rem 1.5rem; background:var(--cream);
+    border:1px solid var(--border); border-radius:var(--radius-lg);
+    transition:border-color .25s, transform .25s;
+  }
+  .canal:hover { border-color:var(--gold-main); transform:translateY(-2px); }
+  .canal svg { width:24px; height:24px; color:var(--gold-main); flex-shrink:0; margin-top:2px; stroke-width:1.7; }
+  .canal strong { display:block; font-size:1rem; color:var(--ink); margin-bottom:.25rem; }
+  .canal span { font-size:.9rem; color:var(--muted); line-height:1.6; }
+  .canal a { color:var(--gold-main); font-weight:600; }
+  .canal a:hover { text-decoration:underline; }
+
+  .formc { background:var(--cream); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; }
+  @media (max-width:520px){ .formc { padding:1.4rem; } }
+  .formc h3 { font-family:var(--font-body); font-size:.8rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-soft); margin-bottom:1.5rem; }
+  .fg { margin-bottom:1.1rem; }
+  .fg label { display:block; font-size:.82rem; font-weight:600; color:var(--text-soft); margin-bottom:.45rem; }
+  .fg input, .fg textarea, .fg select {
+    width:100%; padding:.85rem 1rem; font-size:.95rem;
+    background:var(--white); border:1px solid var(--border); border-radius:var(--radius);
+    transition:border-color .22s, box-shadow .22s; font-family:inherit;
+  }
+  .fg textarea { resize:vertical; min-height:120px; }
+  .fg input:focus, .fg textarea:focus, .fg select:focus {
+    outline:none; border-color:var(--gold-main); box-shadow:0 0 0 3px rgba(192,139,46,.14);
+  }
+  .fg-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  @media (max-width:520px){ .fg-row { grid-template-columns:1fr; } }
+  .nota { font-size:.82rem; color:var(--muted); margin-top:1.25rem; line-height:1.6; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar__in">
+    <span>Frete para todo o Brasil &middot; Pagamento facilitado</span>
+    <span><a href="como-comprar.html">Como comprar</a></span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap header__in">
+    <a href="index.html" class="logo" aria-label="MundoMoedas — página inicial">
+      <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+      <span class="logo__text">
+        <span class="logo__name">Mundo<span>Moedas</span></span>
+        <span class="logo__tag">História em cada moeda</span>
+      </span>
+    </a>
+    <nav class="nav" data-nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="catalogo.html">Moedas</a>
+      <a href="catalogo.html?cat=colecoes">Coleções</a>
+      <a href="catalogo.html?cat=cedulas">Cédulas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a href="catalogo.html" class="icon-btn" aria-label="Buscar produtos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </a>
+      <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="burger" data-burger aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Fale com a gente</h1>
+    <p>Atendimento especializado. Quem responde entende de moedas — pode perguntar sem cerimônia.</p>
+  </div>
+</section>
+
+<main class="section">
+  <div class="wrap">
+    <div class="contato">
+
+      <div class="canais">
+        <a class="canal" id="wppContato" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-4-.9L3 20.5l1.6-4.6A8.4 8.4 0 1 1 21 11.5z"/><path d="M8.5 9.5c-.3 0-.6.1-.8.4-.3.3-.5.7-.5 1.2s.5 1.4.9 2c.7 1.1 1.6 2 2.7 2.6.6.3 1.2.5 1.6.5.5 0 .9-.2 1.2-.5.3-.3.4-.7.4-1.1v-.4c-.1-.1-.2-.2-.4-.3l-1-.4c-.3-.1-.5-.1-.7.1l-.4.5c-.1.2-.3.2-.5.1-.2-.1-.8-.3-1.4-1-.5-.5-.9-1.1-1-1.5-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.5v-.5c0-.2-.3-.6-.5-.8-.1-.2-.4-.3-.6-.3z"/></svg>
+          <div>
+            <strong>WhatsApp</strong>
+            <span>É o canal mais rápido.<br><a class="wa-link" href="#">Clique para conversar</a></span>
+          </div>
+        </a>
+
+        <a class="canal" href="mailto:contato@mundomoedas.com.br">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+          <div>
+            <strong>E-mail</strong>
+            <span>contato@mundomoedas.com.br</span>
+          </div>
+        </a>
+
+        <a class="canal" href="https://shopee.com.br/shop/486896133" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-1.4 11.2a2 2 0 0 1-2 1.8H7.4a2 2 0 0 1-2-1.8L4 7z"/><path d="M9 7V5.5a3 3 0 0 1 6 0V7"/></svg>
+          <div>
+            <strong>Loja na Shopee</strong>
+            <span>Compras com pagamento facilitado e proteção do comprador.</span>
+          </div>
+        </a>
+
+        <div class="canal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <div>
+            <strong>Horário de atendimento</strong>
+            <span>Segunda a sexta, das 9h às 18h.<br>Sábado, das 9h às 13h.</span>
+          </div>
+        </div>
+
+        <div class="box" style="border:1px solid var(--border);border-left:3px solid var(--gold-main);border-radius:var(--radius-lg);padding:1.4rem 1.5rem;background:var(--cream)">
+          <h3 style="font-family:var(--font-body);font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.7rem">Dúvidas comuns</h3>
+          <p style="font-size:.9rem;color:var(--text-soft);line-height:1.7;margin:0">
+            Consulte nossa <a href="como-comprar.html" style="color:var(--gold-main);font-weight:600">página de como comprar</a>
+            — talvez a resposta já esteja lá.
+          </p>
+        </div>
+      </div>
+
+      <div class="formc">
+        <h3>Envie sua mensagem</h3>
+        <form id="formContato">
+          <div class="fg-row">
+            <div class="fg">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+            </div>
+            <div class="fg">
+              <label for="contatoU">WhatsApp ou e-mail</label>
+              <input type="text" id="contatoU" name="contato" required placeholder="(11) 90000-0000">
+            </div>
+          </div>
+
+          <div class="fg">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto">
+              <option>Dúvida sobre uma peça</option>
+              <option>Estado de conservação</option>
+              <option>Pedido / Pagamento</option>
+              <option>Frete e prazo de entrega</option>
+              <option>Vender minha coleção</option>
+              <option>Outro assunto</option>
+            </select>
+          </div>
+
+          <div class="fg">
+            <label for="msg">Mensagem</label>
+            <textarea id="msg" name="mensagem" required placeholder="Conte o que você precisa. Se for sobre uma peça, informe o nome ou o link."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn--gold btn--block">
+            Enviar pelo WhatsApp
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+
+          <p class="nota">
+            Este formulário abre o WhatsApp com sua mensagem já escrita.
+            Nada é enviado ao nosso servidor — a conversa acontece direto com a gente.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__bottom" style="border:none;justify-content:center">
+      <span>© <span id="ano"></span> MundoMoedas &middot; Do Império à República, do Brasil ao mundo.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+// Links de WhatsApp
+document.querySelectorAll('.wa-link').forEach(a => {
+  a.href = `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent('Olá! Vim pelo site MundoMoedas e gostaria de uma ajuda.')}`;
+  a.target = '_blank';
+  a.rel = 'noopener';
+});
+document.getElementById('wppContato').href = `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent('Olá! Vim pelo site MundoMoedas e gostaria de uma ajuda.')}`;
+document.getElementById('wppContato').target = '_blank';
+document.getElementById('wppContato').rel = 'noopener';
+
+// Formulario -> WhatsApp
+document.getElementById('formContato').addEventListener('submit', e => {
+  e.preventDefault();
+  const nome   = document.getElementById('nome').value.trim();
+  const ctt    = document.getElementById('contatoU').value.trim();
+  const ass    = document.getElementById('assunto').value;
+  const msg    = document.getElementById('msg').value.trim();
+
+  const texto =
+`Olá! Vim pelo site MundoMoedas.
+
+Meu nome: ${nome}
+Contato: ${ctt}
+Assunto: ${ass}
+
+Mensagem:
+${msg}`;
+
+  window.open(`https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+  Toast.show('Abrindo o WhatsApp…');
+});
+</script>
+</body>
+</html>

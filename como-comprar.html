@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como Comprar — MundoMoedas</title>
+<meta name="description" content="Passo a passo para comprar moedas antigas no MundoMoedas: escolha a peça, monte o carrinho, envie o pedido pelo WhatsApp e receba em todo o Brasil.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mundomoedas.com.br/como-comprar.html">
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  .passos { display:grid; gap:1.5rem; max-width:48rem; }
+  .passo { display:grid; grid-template-columns:56px 1fr; gap:1.25rem; align-items:start; }
+  .passo__n {
+    width:56px; height:56px; border-radius:50%;
+    background:var(--ink); color:var(--gold-main);
+    display:grid; place-items:center;
+    font-family:var(--font-display); font-size:1.5rem; font-weight:700;
+    flex-shrink:0;
+  }
+  .passo h3 { font-family:var(--font-body); font-size:1.1rem; font-weight:700; color:var(--ink); margin-bottom:.4rem; }
+  .passo p { color:var(--text-soft); line-height:1.7; font-size:.97rem; }
+
+  .faq { max-width:48rem; margin-top:1rem; }
+  .faq details { border-bottom:1px solid var(--border); padding:1.35rem 0; }
+  .faq summary {
+    cursor:pointer; font-family:var(--font-display); font-size:1.08rem; font-weight:600;
+    color:var(--ink); list-style:none; display:flex; justify-content:space-between; align-items:center; gap:1rem;
+  }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after {
+    content:'+'; font-size:1.4rem; color:var(--gold-main); font-family:var(--font-body);
+    transition:transform .25s; line-height:1; flex-shrink:0;
+  }
+  .faq details[open] summary::after { content:'−'; }
+  .faq p { color:var(--text-soft); line-height:1.75; font-size:.96rem; margin-top:.85rem; }
+
+  .box { background:var(--cream); border:1px solid var(--border); border-left:3px solid var(--gold-main); border-radius:0 var(--radius-lg) var(--radius-lg) 0; padding:1.5rem 1.75rem; max-width:48rem; }
+  .box h3 { font-family:var(--font-body); font-size:.78rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-soft); margin-bottom:.85rem; }
+  .box p, .box li { color:var(--text-soft); line-height:1.75; font-size:.96rem; }
+  .box ul { padding-left:0; }
+  .box li { position:relative; padding-left:1.5rem; margin-bottom:.55rem; }
+  .box li::before { content:''; position:absolute; left:0; top:.65em; width:6px; height:6px; border-radius:50%; background:var(--gold-main); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar__in">
+    <span>Frete para todo o Brasil &middot; Pagamento facilitado</span>
+    <span><a href="como-comprar.html">Como comprar</a></span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap header__in">
+    <a href="index.html" class="logo" aria-label="MundoMoedas — página inicial">
+      <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+      <span class="logo__text">
+        <span class="logo__name">Mundo<span>Moedas</span></span>
+        <span class="logo__tag">História em cada moeda</span>
+      </span>
+    </a>
+    <nav class="nav" data-nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="catalogo.html">Moedas</a>
+      <a href="catalogo.html?cat=colecoes">Coleções</a>
+      <a href="catalogo.html?cat=cedulas">Cédulas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a href="catalogo.html" class="icon-btn" aria-label="Buscar produtos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </a>
+      <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="burger" data-burger aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Como comprar</h1>
+    <p>Simples e seguro. Você escolhe a peça, nós confirmamos a disponibilidade e você paga do jeito que preferir.</p>
+  </div>
+</section>
+
+<main class="section">
+  <div class="wrap">
+    <div class="passos">
+      <div class="passo">
+        <div class="passo__n">1</div>
+        <div>
+          <h3>Escolha sua peça</h3>
+          <p>Navegue pelo catálogo, filtre por categoria, faixa de preço ou busque por ano e valor. Na página de cada peça você vê o estado de conservação, todas as variações disponíveis e o estoque em tempo real.</p>
+        </div>
+      </div>
+
+      <div class="passo">
+        <div class="passo__n">2</div>
+        <div>
+          <h3>Monte seu carrinho</h3>
+          <p>Adicione as peças ao carrinho. Você pode ajustar quantidades e remover o que quiser. O total é calculado automaticamente.</p>
+        </div>
+      </div>
+
+      <div class="passo">
+        <div class="passo__n">3</div>
+        <div>
+          <h3>Envie o pedido</h3>
+          <p>Clique em <strong>Enviar pedido pelo WhatsApp</strong>. Abriremos o WhatsApp com a lista completa do seu pedido, já formatada, para você só confirmar e enviar.</p>
+        </div>
+      </div>
+
+      <div class="passo">
+        <div class="passo__n">4</div>
+        <div>
+          <h3>Confirme e pague</h3>
+          <p>Respondemos confirmando a disponibilidade, o frete e as opções de pagamento: Pix, boleto ou cartão. Você escolhe o que for mais conveniente.</p>
+        </div>
+      </div>
+
+      <div class="passo">
+        <div class="passo__n">5</div>
+        <div>
+          <h3>Receba sua moeda</h3>
+          <p>Empacotamos com cuidado para peças frágeis e enviamos com código de rastreio para todo o Brasil. Você acompanha tudo pelo código.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="box" style="margin-top:3rem">
+      <h3>Prefere comprar pela Shopee?</h3>
+      <p>
+        Também temos uma loja na Shopee com pagamento facilitado, parcelamento e proteção do
+        comprador. Se preferir, finalize o pedido por lá — a seleção é a mesma.
+      </p>
+      <p style="margin-top:1rem">
+        <a href="https://shopee.com.br/shop/486896133" target="_blank" rel="noopener" class="btn btn--gold btn--sm">Abrir loja na Shopee</a>
+      </p>
+    </div>
+
+    <h2 style="margin:4rem 0 1rem">Perguntas frequentes</h2>
+
+    <div class="faq">
+      <details open>
+        <summary>Como sei o estado de conservação da moeda?</summary>
+        <p>Cada peça tem o estado descrito no texto da descrição e classificado em três faixas: disponível, últimas unidades ou esgotado. Se quiser ver mais detalhes, peça fotos pelo WhatsApp — mandamos imagens amplas da peça real.</p>
+      </details>
+
+      <details>
+        <summary>As moedas são autênticas?</summary>
+        <p>Sim. Cada item passa por inspeção visual antes de ser publicado. Avaliamos autenticidade, estado de conservação e coerência com o período de emissão. Se um item for réplica ou tiverCharacteristics que não condizam com o anúncio, ele não entra no catálogo.</p>
+      </details>
+
+      <details>
+        <summary>Quais formas de pagamento vocês aceitam?</summary>
+        <p>Pagamento por Pix, boleto ou cartão de crédito, com os meios disponíveis na plataforma de envio do pedido. Você escolhe após a confirmação do frete.</p>
+      </details>
+
+      <details>
+        <summary>Vocês entregam para todo o Brasil?</summary>
+        <p>Sim. Enviamos para todo o território nacional com código de rastreio. O valor do frete é calculado e informado na confirmação do pedido.</p>
+      </details>
+
+      <details>
+        <summary>Como é a embalagem?</summary>
+        <p>Cada peça vai em embalagem própria, com proteção para não sofrer impacto durante o transporte. Moedas soltas seguem em estojo ou blister próprio da peça.</p>
+      </details>
+
+      <details>
+        <summary>Posso comprar várias peças de uma vez?</summary>
+        <p>Pode. Adicione todas ao carrinho e envie o pedido de uma vez pelo WhatsApp. A gente confirma a disponibilidade de cada item de uma só vez.</p>
+      </details>
+
+      <details>
+        <summary>Como falo com vocês?</summary>
+        <p>Use o botão de WhatsApp em qualquer página do site, ou acesse a página de <a href="contato.html" style="color:var(--gold-main);text-decoration:underline">Contato</a>. Atendemos de segunda a sexta, das 9h às 18h.</p>
+      </details>
+    </div>
+
+    <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:3rem">
+      <a href="catalogo.html" class="btn btn--gold">Ver catálogo</a>
+      <a href="#" data-whatsapp class="btn btn--outline">Falar no WhatsApp</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+          <span class="logo__text">
+            <span class="logo__name">Mundo<span>Moedas</span></span>
+            <span class="logo__tag">História em cada moeda</span>
+          </span>
+        </a>
+        <p class="footer__about">Peças selecionadas com rigor para quem coleciona. Do Império à República, do Brasil ao mundo.</p>
+      </div>
+      <div>
+        <h4>Categorias</h4>
+        <a href="catalogo.html">Moedas do Brasil</a>
+        <a href="catalogo.html?cat=cedulas">Cédulas</a>
+        <a href="catalogo.html?cat=colecoes">Coleções e Lotes</a>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="como-comprar.html">Como comprar</a>
+        <a href="contato.html">Contato</a>
+        <a href="carrinho.html">Meu carrinho</a>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <a href="https://shopee.com.br/shop/486896133" target="_blank" rel="noopener">Loja na Shopee</a>
+        <a href="#" data-whatsapp>Pedir pelo WhatsApp</a>
+        <a href="mailto:contato@mundomoedas.com.br">contato@mundomoedas.com.br</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="ano"></span> MundoMoedas. Todos os direitos reservados.</span>
+      <span>Do Império à República, do Brasil ao mundo.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+</body>
+</html>

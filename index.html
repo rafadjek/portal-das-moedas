@@ -1,878 +1,281 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal das Moedas - Catálogo Completo de Moedas Antigas do Brasil</title>
-    <meta name="description" content="Catálogo completo com 167 produtos de numismática: moedas antigas brasileiras, cédulas de cruzeiros, coleções e lotes. Pr Authorized, acentos e raridades. Consultation via Shopee.">
-    <meta name="keywords" content="moedas antigas, numismática, cédulas brasileiras, colecionáveis, moedas de cruzeiro, moedas de réis, cédulas de cruzeiro, shopee moedas, Portal das Moedas">
-    <meta name="author" content="Portal das Moedas">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <link rel="canonical" href="https://rafadjek.github.io/portal-das-moedas/">
-
-    <!-- Open Graph / redes sociais -->
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:site_name" content="Portal das Moedas">
-    <meta property="og:title" content="Portal das Moedas - Catálogo Completo de Moedas Antigas do Brasil">
-    <meta property="og:description" content="167 produtos de numismática: moedas antigas brasileiras, cédulas de cruzeiros, coleções e lotes.">
-    <meta property="og:url" content="https://rafadjek.github.io/portal-das-moedas/">
-    <meta property="og:image" content="https://rafadjek.github.io/portal-das-moedas/assets/images/favicon.svg">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Portal das Moedas - Catálogo Completo">
-    <meta name="twitter:description" content="167 produtos de numismática: moedas antigas brasileiras, cédulas, coleções e lotes.">
-    <meta name="twitter:image" content="https://rafadjek.github.io/portal-das-moedas/assets/images/favicon.svg">
-
-    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
-    <link rel="sitemap" type="application/xml" href="sitemap.xml">
-    <style>
-        :root {
-            --gold: #D4AF37;
-            --gold-light: #F0D060;
-            --dark: #1a1a2e;
-            --darker: #0f0f1a;
-            --card-bg: #16213e;
-            --text: #e8e8e8;
-            --text-muted: #a0a0b0;
-            --success: #4CAF50;
-            --border: rgba(212, 175, 55, 0.2);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 100%);
-            color: var(--text);
-            min-height: 100vh;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
-            border-bottom: 2px solid var(--gold);
-            padding: 1.5rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-        }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .logo-icon {
-            font-size: 2.5rem;
-        }
-
-        .logo-text h1 {
-            font-size: 1.8rem;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .logo-text p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .stats-bar {
-            display: flex;
-            gap: 2rem;
-            padding: 1rem 2rem;
-            background: rgba(212, 175, 55, 0.05);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--gold);
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-        }
-
-        .controls {
-            max-width: 1400px;
-            margin: 1.5rem auto;
-            padding: 0 2rem;
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .search-box {
-            flex: 1;
-            min-width: 250px;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 0.75rem 1rem 0.75rem 2.5rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text);
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--gold);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-        }
-
-        .search-box::before {
-            content: "🔍";
-            position: absolute;
-            left: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1rem;
-        }
-
-        .filter-group {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .filter-group label {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            white-space: nowrap;
-        }
-
-        .filter-group select {
-            padding: 0.75rem 1rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .filter-group select:focus {
-            outline: none;
-            border-color: var(--gold);
-        }
-
-        .sort-btn {
-            padding: 0.75rem 1.25rem;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text);
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .sort-btn:hover {
-            border-color: var(--gold);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .sort-btn.active {
-            background: var(--gold);
-            color: var(--dark);
-            border-color: var(--gold);
-        }
-
-        .catalog {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem 2rem;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .product-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #2a2a4a, #1a1a2e);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            inset: 0;
-        }
-
-        .product-image .img-fallback {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            font-size: 4rem;
-        }
-
-        .product-image .match-badge {
-            position: relative;
-            z-index: 2;
-        }
-
-        .product-info {
-            padding: 1.25rem;
-        }
-
-        .product-name {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .product-price {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 0.5rem;
-        }
-
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .product-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .product-rating .star {
-            color: #FFD700;
-        }
-
-        .product-stock {
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .stock-high {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4CAF50;
-        }
-
-        .stock-medium {
-            background: rgba(255, 193, 7, 0.2);
-            color: #FFC107;
-        }
-
-        .stock-low {
-            background: rgba(244, 67, 54, 0.2);
-            color: #F44336;
-        }
-
-        .product-badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-top: 0.5rem;
-        }
-
-        .badge-match {
-            background: rgba(76, 175, 80, 0.2);
-            color: #4CAF50;
-        }
-
-        .badge-public {
-            background: rgba(33, 150, 243, 0.2);
-            color: #2196F3;
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-muted);
-        }
-
-        .no-results-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-muted);
-        }
-
-        .loading-spinner {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 3px solid var(--border);
-            border-top-color: var(--gold);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        @media (max-width: 768px) {
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 1rem;
-            }
-
-            .controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-box input {
-                width: 100%;
-            }
-        }
-
-        /* Modal */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.75);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
-            z-index: 5000;
-            backdrop-filter: blur(4px);
-        }
-
-        .modal {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            max-width: 820px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 2rem;
-            position: relative;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: rgba(255, 255, 255, 0.08);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
-        }
-
-        .modal h2 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            padding-right: 2.5rem;
-        }
-
-        .modal h3 {
-            font-size: 1rem;
-            margin: 1.5rem 0 0.8rem;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .modal p {
-            color: var(--text-muted);
-            line-height: 1.7;
-            margin-bottom: 0.6rem;
-        }
-
-        .modal-hero {
-            width: 100%;
-            height: 300px;
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #2a2a4a, #1a1a2e);
-        }
-
-        .modal-hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-        }
-
-        .btn-primary {
-            flex: 1;
-            min-width: 200px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            border: none;
-            border-radius: 10px;
-            padding: 0.9rem 1.5rem;
-            color: #1a1a2e;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
-        }
-
-        .btn-secondary {
-            flex: 1;
-            min-width: 200px;
-            background: transparent;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 0.9rem 1.5rem;
-            color: var(--text);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            text-align: center;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--gold);
-            color: var(--gold);
-        }
-
-        .variations-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 0.5rem;
-        }
-
-        .variations-table th,
-        .variations-table td {
-            padding: 0.7rem 0.9rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.9rem;
-        }
-
-        .variations-table th {
-            color: var(--gold);
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.78rem;
-            letter-spacing: 0.5px;
-        }
-
-        .variations-table td {
-            color: var(--text-muted);
-        }
-
-        @media (max-width: 600px) {
-            .modal {
-                padding: 1.25rem;
-            }
-
-            .modal h2 {
-                font-size: 1.15rem;
-            }
-
-            .modal-hero {
-                height: 200px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MundoMoedas — Moedas Antigas do Brasil, Cédulas e Coleções</title>
+<meta name="description" content="Mais que moedas, são pedaços da nossa história. Peças autênticas selecionadas com rigor para colecionadores e apaixonados por numismática. Império, República e Brasil.">
+<meta name="keywords" content="moedas antigas, moedas brasileiras, numismática, cédulas antigas, colecionar moedas, moedas de réis, moedas de cruzeiros, moedas império, moedas república">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://mundomoedas.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="MundoMoedas">
+<meta property="og:title" content="MundoMoedas — Moedas Antigas do Brasil">
+<meta property="og:description" content="Mais que moedas, são pedaços da nossa história.">
+<meta property="og:image" content="https://mundomoedas.com.br/assets/images/logo.svg">
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <a href="#" class="logo">
-                <div class="logo-icon">🪙</div>
-                <span class="logo-text">Portal das Moedas</span>
-            </a>
-            <nav>
-                <a href="#" class="active">Todos</a>
-                <a href="#" onclick="filterCategory('moedas')">Moedas</a>
-                <a href="#" onclick="filterCategory('cedulas')">Cédulas</a>
-                <a href="#" onclick="filterCategory('colecoes')">Coleções</a>
-            </nav>
-            <div class="header-actions">
-                <div class="search-box">
-                    <span class="search-icon">🔍</span>
-                    <input type="text" id="searchInput" placeholder="Buscar produtos..." oninput="searchProducts()">
-                </div>
-            </div>
-        </div>
-    </header>
 
-    <main>
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number" id="totalProducts">0</div>
-                <div class="stat-label">Produtos</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="totalVariations">0</div>
-                <div class="stat-label">Variações</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="totalCategories">0</div>
-                <div class="stat-label">Categorias</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="matchedItems">0</div>
-                <div class="stat-label">Na Loja Pública</div>
-            </div>
-        </div>
+<!-- ============ TOPO ============ -->
+<div class="topbar">
+  <div class="wrap topbar__in">
+    <span>Frete para todo o Brasil &middot; Pagamento facilitado</span>
+    <span><a href="como-comprar.html">Como comprar</a></span>
+  </div>
+</div>
 
-        <div class="filters">
-            <div class="filter-group">
-                <label>Categoria:</label>
-                <select id="categoryFilter" onchange="applyFilters()">
-                    <option value="all">Todos</option>
-                    <option value="moedas">Moedas</option>
-                    <option value="cedulas">Cédulas</option>
-                    <option value="colecoes">Coleções</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>Preço:</label>
-                <select id="priceFilter" onchange="applyFilters()">
-                    <option value="all">Todos</option>
-                    <option value="under50">Até R$ 50</option>
-                    <option value="50to200">R$ 50 - R$ 200</option>
-                    <option value="over200">Acima de R$ 200</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label>Ordenar:</label>
-                <select id="sortFilter" onchange="applyFilters()">
-                    <option value="name">Nome</option>
-                    <option value="priceAsc">Preço: Menor</option>
-                    <option value="priceDesc">Preço: Maior</option>
-                </select>
-            </div>
-        </div>
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="wrap header__in">
+    <a href="index.html" class="logo" aria-label="MundoMoedas — página inicial">
+      <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+      <span class="logo__text">
+        <span class="logo__name">Mundo<span>Moedas</span></span>
+        <span class="logo__tag">História em cada moeda</span>
+      </span>
+    </a>
 
-        <div class="catalog">
-            <div class="product-grid" id="productGrid">
-                <div class="loading">
-                    <div class="loading-spinner"></div>
-                    <p>Carregando produtos...</p>
-                </div>
-            </div>
-        </div>
-    </main>
+    <nav class="nav" data-nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="catalogo.html">Moedas</a>
+      <a href="catalogo.html?cat=colecoes">Coleções</a>
+      <a href="catalogo.html?cat=cedulas">Cédulas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
 
-    <script>
-        let catalog = [];
-        let filteredCatalog = [];
+    <div class="header__actions">
+      <a href="catalogo.html" class="icon-btn" aria-label="Buscar produtos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+        </svg>
+      </a>
+      <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="burger" data-burger aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-        async function loadCatalog() {
-            try {
-                const response = await fetch('catalog.json');
-                catalog = await response.json();
-                filteredCatalog = [...catalog];
-                updateStats();
-                renderProducts(filteredCatalog);
-            } catch (error) {
-                console.error('Erro ao carregar catálogo:', error);
-                document.getElementById('productGrid').innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-state-icon">❌</div>
-                        <p>Erro ao carregar produtos. Tente novamente.</p>
-                    </div>
-                `;
-            }
-        }
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero__in">
+    <div>
+      <span class="eyebrow">Moedas que contam histórias</span>
+      <h1 class="hero__title">Mundo<span>Moedas</span></h1>
+      <p class="hero__sub">Mais que moedas, são pedaços da nossa história.</p>
+      <p class="hero__note">Peças autênticas, selecionadas com rigor, para colecionadores e apaixonados por numismática.</p>
+      <div class="hero__cta">
+        <a href="catalogo.html" class="btn btn--gold">
+          Ver coleções
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="sobre.html" class="btn btn--ghost-light">Nossa história</a>
+      </div>
+    </div>
 
-        function updateStats() {
-            document.getElementById('totalProducts').textContent = catalog.length;
-            
-            const totalVars = catalog.reduce((sum, p) => sum + (p.variacoes ? p.variacoes.length : 0), 0);
-            document.getElementById('totalVariations').textContent = totalVars;
-            
-            const categories = new Set(catalog.map(p => getCategory(p.nome)));
-            document.getElementById('totalCategories').textContent = categories.size;
-            
-            const matched = catalog.filter(p => p.publico_match === 'SIM').length;
-            document.getElementById('matchedItems').textContent = matched;
-        }
+    <div class="hero__art" aria-hidden="true">
+      <div class="hero__coin">
+        <span class="hero__coin-txt">BRASIL</span>
+        <span class="hero__coin-yr">1889</span>
+      </div>
+    </div>
+  </div>
 
-        function getCategory(name) {
-            const lower = name.toLowerCase();
-            if (lower.includes('cédula') || lower.includes('cedula')) return 'cedulas';
-            if (lower.includes('coleção') || lower.includes('colecao') || lower.includes('lote') || lower.includes('conjunto')) return 'colecoes';
-            return 'moedas';
-        }
+  <aside class="hero__aside">
+    <p>Do Império<br>à República,<br>do Brasil<br>ao mundo.</p>
+  </aside>
+</section>
 
-        function getCategoryLabel(category) {
-            const labels = {
-                'moedas': '🪙',
-                'cedulas': '💵',
-                'colecoes': '📦'
-            };
-            return labels[category] || '🏷️';
-        }
+<!-- ============ CATEGORIAS ============ -->
+<section class="catbar">
+  <div class="wrap">
+    <div class="catbar__grid">
+      <a class="catbar__item" href="catalogo.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>
+        <strong>Moedas do Brasil</strong><span>Imperiais e Republicanas</span>
+      </a>
+      <a class="catbar__item" href="catalogo.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
+        <strong>Moedas Antigas</strong><span>Brasil e Mundo</span>
+      </a>
+      <a class="catbar__item" href="catalogo.html?cat=ouro">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v10l8 5 8-5V7z"/><path d="m4 7 8 5 8-5M12 12v10"/></svg>
+        <strong>Moedas de Ouro</strong><span>Investimento e Coleção</span>
+      </a>
+      <a class="catbar__item" href="catalogo.html?cat=comemorativas">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+        <strong>Comemorativas</strong><span>Edição Especial</span>
+      </a>
+      <a class="catbar__item" href="catalogo.html?cat=acessorios">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v8l-9 5-9-5V8l9-5z"/><path d="m3 8 9 5 9-5M12 13v10"/></svg>
+        <strong>Acessórios</strong><span>Álbuns e Estojos</span>
+      </a>
+    </div>
+  </div>
+</section>
 
-        function getStockClass(stock) {
-            if (stock === 0) return 'out-of-stock';
-            if (stock < 10) return 'low-stock';
-            return 'in-stock';
-        }
+<!-- ============ DESTAQUES ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="sechead__title">
+        <span class="eyebrow">Destaques</span>
+        <h2>Peças selecionadas<br>para colecionadores</h2>
+      </div>
+      <a href="catalogo.html" class="link-more">
+        Ver todos os produtos
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
 
-        function formatPrice(priceStr) {
-            if (!priceStr) return '—';
-            const num = parseFloat(priceStr);
-            if (isNaN(num)) return priceStr;
-            return `R$ ${num.toFixed(2).replace('.', ',')}`;
-        }
+    <div class="grid-prod" id="destaques" aria-busy="true">
+      <div class="skeleton" style="height:330px"></div>
+      <div class="skeleton" style="height:330px"></div>
+      <div class="skeleton" style="height:330px"></div>
+      <div class="skeleton" style="height:330px"></div>
+    </div>
+  </div>
+</section>
 
-        function renderProducts(products) {
-            const grid = document.getElementById('productGrid');
-            
-            if (products.length === 0) {
-                grid.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-state-icon">🔍</div>
-                        <p>Nenhum produto encontrado.</p>
-                    </div>
-                `;
-                return;
-            }
+<!-- ============ SELOS ============ -->
+<section class="trustbar">
+  <div class="wrap">
+    <div class="trustbar__grid">
+      <div class="trust__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5.5v6c0 5 3.4 9.4 8 10.5 4.6-1.1 8-5.5 8-10.5v-6z"/><path d="m9 12 2 2 4-4"/></svg>
+        <div><strong>Produtos Autênticos</strong><span>Procedência garantida</span></div>
+      </div>
+      <div class="trust__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1zM14 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="17.5" cy="18.5" r="2"/></svg>
+        <div><strong>Entrega Segura</strong><span>Em todo o Brasil</span></div>
+      </div>
+      <div class="trust__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        <div><strong>Pagamento Facilitado</strong><span>Diversas opções</span></div>
+      </div>
+      <div class="trust__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2-5.5-2.9-5.5 2.9 1-6.2L3 9.6l6.2-.9z"/></svg>
+        <div><strong>Atendimento Especializado</strong><span>Tire suas dúvidas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            grid.innerHTML = products.map((p, idx) => {
-                const category = getCategory(p.nome);
-                const variations = p.variacoes || [];
-                const firstVar = variations[0];
-                const price = firstVar ? firstVar.preco : '';
-                const stock = firstVar ? firstVar.estoque : 0;
-                const stockClass = getStockClass(stock);
-                const matchBadge = p.publico_match === 'SIM' 
-                    ? '<span class="match-badge">✓ Loja pública</span>' 
-                    : '';
+<!-- ============ CTA ============ -->
+<section class="cta">
+  <div class="wrap cta__in">
+    <div>
+      <h2 class="cta__title">Sua próxima<br>moeda especial <span>está aqui.</span></h2>
+      <p class="cta__text">Explore nossa seleção e encontre a peça ideal para sua coleção. Cada moeda carrega uma história — a próxima é a sua.</p>
+      <a href="catalogo.html" class="btn btn--gold">
+        Ver coleções
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div aria-hidden="true">
+      <div class="hero__coin" style="animation:none">
+        <span class="hero__coin-txt">REPÚBLICA</span>
+        <span class="hero__coin-yr">1927</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                return `
-                    <div class="product-card" style="animation-delay: ${idx * 0.03}s" onclick="openModal(${idx})">
-                        <div class="product-image">
-                            ${p.imagem ? `<img src="${p.imagem}" alt="Imagem de ${p.nome}" loading="lazy" onerror="this.style.display='none'">` : ''}
-                            <span class="img-fallback">${getCategoryLabel(category)}</span>
-                            ${matchBadge}
-                        </div>
-                        <div class="product-info">
-                            <div class="product-name">${p.nome}</div>
-                            <div class="product-price">${formatPrice(price)}</div>
-                            <div class="product-stock ${stockClass}">
-                                ${stock === 0 ? 'Esgotado' : stock < 10 ? `Últimos ${stock}!` : `${stock} disponíveis`}
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
+<!-- ============ RODAPÉ ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+          <span class="logo__text">
+            <span class="logo__name">Mundo<span>Moedas</span></span>
+            <span class="logo__tag">História em cada moeda</span>
+          </span>
+        </a>
+        <p class="footer__about">
+          Peças selecionadas com rigor para quem coleciona. Do Império à República,
+          do Brasil ao mundo.
+        </p>
+      </div>
 
-        function openModal(idx) {
-            const p = filteredCatalog[idx];
-            const category = getCategory(p.nome);
-            const variations = p.variacoes || [];
-            
-            const modal = document.createElement('div');
-            modal.className = 'modal-overlay';
-            modal.innerHTML = `
-                <div class="modal">
-                    <button class="modal-close" onclick="this.parentElement.parentElement.remove()">×</button>
-                    ${p.imagem ? `<div class="modal-hero"><img src="${p.imagem}" alt="Imagem de ${p.nome}" onerror="this.parentElement.style.display='none'"></div>` : ''}
-                    <h2>${p.nome}</h2>
-                    <p><strong>Categoria:</strong> ${category}</p>
-                    <p><strong>ID do Produto:</strong> ${p.id}</p>
-                    ${p.publico_match === 'SIM' ? '<p><strong>Status:</strong> ✓ Disponível na loja pública</p>' : ''}
-                    
-                    ${variations.length > 0 ? `
-                        <h3>Variações</h3>
-                        <table class="variations-table">
-                            <thead>
-                                <tr>
-                                    <th>Variação</th>
-                                    <th>Preço</th>
-                                    <th>Estoque</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${variations.map(v => `
-                                    <tr>
-                                        <td>${v.nome || 'Padrão'}</td>
-                                        <td>${formatPrice(v.preco)}</td>
-                                        <td class="${getStockClass(v.estoque)}">${v.estoque}</td>
-                                    </tr>
-                                `).join('')}
-                            </tbody>
-                        </table>
-                    ` : '<p>Sem variações cadastradas.</p>'}
-                    
-                    ${p.descricao ? `<h3>Descrição</h3><p>${p.descricao}</p>` : ''}
-                    
-                    <div class="modal-actions">
-                        <a class="btn-primary" href="https://shopee.com.br/shop/486896133" target="_blank" rel="noopener">
-                            🛒 Ver na Shopee
-                        </a>
-                        <a class="btn-secondary" href="https://shopee.com.br/shop/486896133" target="_blank" rel="noopener">
-                            🏪 Visitar a loja
-                        </a>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(modal);
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) modal.remove();
-            });
-        }
+      <div>
+        <h4>Categorias</h4>
+        <a href="catalogo.html">Moedas do Brasil</a>
+        <a href="catalogo.html?cat=cedulas">Cédulas</a>
+        <a href="catalogo.html?cat=colecoes">Coleções e Lotes</a>
+        <a href="catalogo.html?cat=ouro">Moedas de Ouro</a>
+        <a href="catalogo.html?cat=acessorios">Acessórios</a>
+      </div>
 
-        function searchProducts() {
-            applyFilters();
-        }
+      <div>
+        <h4>Institucional</h4>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="como-comprar.html">Como comprar</a>
+        <a href="contato.html">Contato</a>
+        <a href="carrinho.html">Meu carrinho</a>
+      </div>
 
-        function applyFilters() {
-            let filtered = [...catalog];
+      <div>
+        <h4>Atendimento</h4>
+        <a href="https://shopee.com.br/shop/486896133" target="_blank" rel="noopener">Loja na Shopee</a>
+        <a href="#" data-whatsapp>Pedir pelo WhatsApp</a>
+        <a href="mailto:contato@mundomoedas.com.br">contato@mundomoedas.com.br</a>
+        <p style="margin-top:1rem;color:var(--muted);font-size:.85rem">Seg a Sex, 9h às 18h</p>
+      </div>
+    </div>
 
-            // Category filter
-            const categoryFilter = document.getElementById('categoryFilter').value;
-            if (categoryFilter !== 'all') {
-                filtered = filtered.filter(p => getCategory(p.nome) === categoryFilter);
-            }
+    <div class="footer__bottom">
+      <span>© <span id="ano"></span> MundoMoedas. Todos os direitos reservados.</span>
+      <span>Do Império à República, do Brasil ao mundo.</span>
+    </div>
+  </div>
+</footer>
 
-            // Search filter
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            if (query) {
-                filtered = filtered.filter(p => 
-                    p.nome.toLowerCase().includes(query) ||
-                    (p.variacoes && p.variacoes.some(v => v.nome.toLowerCase().includes(query)))
-                );
-            }
+<script src="js/app.js"></script>
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
 
-            // Sort
-            const sortBy = document.getElementById('sortFilter').value;
-            filtered.sort((a, b) => {
-                const aPrice = parseFloat(a.variacoes?.[0]?.preco) || 0;
-                const bPrice = parseFloat(b.variacoes?.[0]?.preco) || 0;
-                const aStock = a.variacoes?.[0]?.estoque || 0;
-                const bStock = b.variacoes?.[0]?.estoque || 0;
+(async () => {
+  const alvo = document.getElementById('destaques');
+  const prods = await carregarCatalogo();
 
-                switch (sortBy) {
-                    case 'priceAsc': return aPrice - bPrice;
-                    case 'priceDesc': return bPrice - aPrice;
-                    case 'stock': return bStock - aStock;
-                    case 'name': default: return a.nome.localeCompare(b.nome);
-                }
-            });
+  if (!prods.length) {
+    alvo.innerHTML = '<p class="lead">Não foi possível carregar o catálogo.</p>';
+    alvo.removeAttribute('aria-busy');
+    return;
+  }
 
-            filteredCatalog = filtered;
-            renderProducts(filtered);
-        }
+  // Destaques: online, com estoque, ordenados por peça mais cara
+  const marcas = prods
+    .filter(p => p.publico_match === 'SIM' && estoqueTotal(p) > 0)
+    .sort((a, b) => precos(b).max - precos(a).max)
+    .slice(0, 8);
 
-        // Initialize
-        loadCatalog();
-    </script>
+  // Se online for pouco, completa com os mais valiosos disponíveis
+  const extras = prods
+    .filter(p => p.publico_match !== 'SIM' && estoqueTotal(p) > 0)
+    .sort((a, b) => precos(b).max - precos(a).max)
+    .slice(0, Math.max(0, 8 - marcas.length));
+
+  alvo.innerHTML = [...marcas, ...extras].map(cardHTML).join('');
+  alvo.removeAttribute('aria-busy');
+})();
+</script>
 </body>
 </html>

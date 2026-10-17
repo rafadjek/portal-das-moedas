@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Moeda 1 Real 1994 - Verso">
-  <rect width="400" height="400" fill="#1a1a2e"/>
-  <circle cx="200" cy="180" r="110" fill="none" stroke="#ffd700" stroke-width="6"/>
-  <circle cx="200" cy="180" r="95" fill="none" stroke="#ffd700" stroke-width="2"/>
-  <text x="200" y="165" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#ffd700">EFFIGIE</text>
-  <text x="200" y="205" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#ffd700">REPÚBLICA</text>
-  <text x="200" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#ffd700">Verso - Moeda 1 Real</text>
-</svg>

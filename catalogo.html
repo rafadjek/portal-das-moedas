@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catálogo de Moedas — MundoMoedas</title>
+<meta name="description" content="Catálogo completo de moedas antigas brasileiras, cédulas de cruzeiros, coleções, lotes e acessórios. Filtre por categoria e faixa de preço.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mundomoedas.com.br/catalogo.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Catálogo de Moedas — MundoMoedas">
+<meta property="og:description" content="Peças selecionadas com rigor para colecionadores.">
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar__in">
+    <span>Frete para todo o Brasil &middot; Pagamento facilitado</span>
+    <span><a href="como-comprar.html">Como comprar</a></span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap header__in">
+    <a href="index.html" class="logo" aria-label="MundoMoedas — página inicial">
+      <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+      <span class="logo__text">
+        <span class="logo__name">Mundo<span>Moedas</span></span>
+        <span class="logo__tag">História em cada moeda</span>
+      </span>
+    </a>
+    <nav class="nav" data-nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="catalogo.html">Moedas</a>
+      <a href="catalogo.html?cat=colecoes">Coleções</a>
+      <a href="catalogo.html?cat=cedulas">Cédulas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a href="catalogo.html" class="icon-btn" aria-label="Buscar produtos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </a>
+      <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="burger" data-burger aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <h1 id="titulo">Catálogo</h1>
+    <p id="subtitulo">Peças selecionadas com rigor, do Império à República.</p>
+  </div>
+</section>
+
+<main class="section section--tight">
+  <div class="wrap">
+
+    <!-- Controles -->
+    <div class="controls">
+      <div class="field">
+        <label class="sr-only" for="busca">Buscar produtos</label>
+        <input type="search" id="busca" placeholder="Buscar por nome, ano ou valor… (ex.: 1889, cruzeiro, império)" autocomplete="off">
+      </div>
+      <div class="field">
+        <label class="sr-only" for="fCat">Categoria</label>
+        <select id="fCat">
+          <option value="">Todas as categorias</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="sr-only" for="fPreco">Faixa de preço</label>
+        <select id="fPreco">
+          <option value="">Qualquer preço</option>
+          <option value="0-50">Até R$ 50</option>
+          <option value="50-200">R$ 50 a R$ 200</option>
+          <option value="200-500">R$ 200 a R$ 500</option>
+          <option value="500-">Acima de R$ 500</option>
+        </select>
+      </div>
+      <div class="field">
+        <label class="sr-only" for="fOrdem">Ordenar por</label>
+        <select id="fOrdem">
+          <option value="relevancia">Mais relevantes</option>
+          <option value="menor">Menor preço</option>
+          <option value="maior">Maior preço</option>
+          <option value="az">Nome (A-Z)</option>
+          <option value="za">Nome (Z-A)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Chips -->
+    <div class="chips" id="chips"></div>
+
+    <!-- Resultado -->
+    <div class="result-bar">
+      <span id="contagem">Carregando catálogo…</span>
+      <label style="display:inline-flex;align-items:center;gap:.5rem;cursor:pointer">
+        <input type="checkbox" id="fOnline" style="width:auto;padding:0">
+        <span>Somente disponíveis</span>
+      </label>
+    </div>
+
+    <div class="grid-prod" id="grade" aria-busy="true">
+      <div class="skeleton" style="height:330px"></div>
+      <div class="skeleton" style="height:330px"></div>
+      <div class="skeleton" style="height:330px"></div>
+      <div class="skeleton" style="height:330px"></div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+          <span class="logo__text">
+            <span class="logo__name">Mundo<span>Moedas</span></span>
+            <span class="logo__tag">História em cada moeda</span>
+          </span>
+        </a>
+        <p class="footer__about">Peças selecionadas com rigor para quem coleciona. Do Império à República, do Brasil ao mundo.</p>
+      </div>
+      <div>
+        <h4>Categorias</h4>
+        <a href="catalogo.html">Moedas do Brasil</a>
+        <a href="catalogo.html?cat=cedulas">Cédulas</a>
+        <a href="catalogo.html?cat=colecoes">Coleções e Lotes</a>
+        <a href="catalogo.html?cat=ouro">Moedas de Ouro</a>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="como-comprar.html">Como comprar</a>
+        <a href="contato.html">Contato</a>
+        <a href="carrinho.html">Meu carrinho</a>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <a href="https://shopee.com.br/shop/486896133" target="_blank" rel="noopener">Loja na Shopee</a>
+        <a href="#" data-whatsapp>Pedir pelo WhatsApp</a>
+        <a href="mailto:contato@mundomoedas.com.br">contato@mundomoedas.com.br</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="ano"></span> MundoMoedas. Todos os direitos reservados.</span>
+      <span>Do Império à República, do Brasil ao mundo.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+let TODOS = [];
+let CATS  = [];
+
+(async () => {
+  TODOS = await carregarCatalogo();
+  const grade = document.getElementById('grade');
+  if (!TODOS.length) {
+    grade.innerHTML = '<p class="lead">Não foi possível carregar o catálogo.</p>';
+    grade.removeAttribute('aria-busy');
+    return;
+  }
+
+  // Agrupa produtos por categoria amigável
+  const mapa = new Map();
+  TODOS.forEach(p => {
+    const k = categorizar(p.nome);
+    mapa.set(k, (mapa.get(k) || 0) + 1);
+  });
+  CATS = [...mapa.entries()].sort((a,b) => b[1] - a[1]);
+
+  const sel = document.getElementById('fCat');
+  CATS.forEach(([k, n]) => {
+    const o = document.createElement('option');
+    o.value = k;
+    o.textContent = `${CATEGORIAS[k] || k} (${n})`;
+    sel.appendChild(o);
+  });
+
+  // Lê ?cat= da URL
+  const params = new URLSearchParams(location.search);
+  const catURL = params.get('cat');
+  if (catURL && mapa.has(catURL)) sel.value = catURL;
+
+  if (catURL && mapa.has(catURL)) {
+    document.getElementById('titulo').textContent = CATEGORIAS[catURL] || 'Catálogo';
+  }
+
+  montarChips();
+  aplicar();
+})();
+
+function montarChips() {
+  const box = document.getElementById('chips');
+  box.innerHTML = CATS.map(([k, n]) =>
+    `<button class="chip" data-cat="${k}">${CATEGORIAS[k] || k} <span style="opacity:.6">${n}</span></button>`
+  ).join('');
+  box.addEventListener('click', e => {
+    const b = e.target.closest('[data-cat]');
+    if (!b) return;
+    const v = document.getElementById('fCat').value;
+    document.getElementById('fCat').value = (v === b.dataset.cat) ? '' : b.dataset.cat;
+    aplicar();
+  });
+}
+
+function aplicar() {
+  const q     = norm(document.getElementById('busca').value);
+  const cat   = document.getElementById('fCat').value;
+  const faixa = document.getElementById('fPreco').value;
+  const ordem = document.getElementById('fOrdem').value;
+  const soOnline = document.getElementById('fOnline').checked;
+
+  let lista = TODOS.filter(p => {
+    if (cat && categorizar(p.nome) !== cat) return false;
+
+    const { min } = precos(p);
+    if (faixa) {
+      const [a, b] = faixa.split('-');
+      const max = b === '' ? Infinity : Number(b);
+      if (min < Number(a) || min > max) return false;
+    }
+
+    if (soOnline && estoqueTotal(p) <= 0) return false;
+
+    if (q) {
+      const alvo = norm(p.nome + ' ' + (p.descricao || '') + ' ' + (p.categoria || ''));
+      if (!alvo.includes(q)) return false;
+    }
+    return true;
+  });
+
+  const peso = p => (p.publico_match === 'SIM' ? 0 : 1);
+  const ordens = {
+    menor:    (a,b) => precos(a).min - precos(b).min,
+    maior:    (a,b) => precos(b).max - precos(a).max,
+    az:       (a,b) => a.nome.localeCompare(b.nome, 'pt-BR'),
+    za:       (a,b) => b.nome.localeCompare(a.nome, 'pt-BR'),
+    relevancia: (a,b) => peso(a) - peso(b) || precos(b).max - precos(a).max
+  };
+  lista.sort(ordens[ordem] || ordens.relevancia);
+
+  // Chips ativos
+  document.querySelectorAll('#chips .chip').forEach(c =>
+    c.classList.toggle('is-on', c.dataset.cat === cat));
+
+  // Contagem
+  const total = TODOS.length;
+  document.getElementById('contagem').innerHTML =
+    lista.length === total
+      ? `<strong>${total}</strong> produtos`
+      : `<strong>${lista.length}</strong> de ${total} produtos`;
+
+  // Grade
+  const grade = document.getElementById('grade');
+  if (!lista.length) {
+    grade.innerHTML = `
+      <div class="empty" style="grid-column:1/-1">
+        <h3>Nenhuma peça encontrada</h3>
+        <p>Tente ajustar os filtros ou buscar por outro termo.</p>
+        <button class="btn btn--outline" id="limpar">Limpar filtros</button>
+      </div>`;
+    document.getElementById('limpar').addEventListener('click', () => {
+      document.getElementById('busca').value = '';
+      document.getElementById('fCat').value = '';
+      document.getElementById('fPreco').value = '';
+      document.getElementById('fOrdem').value = 'relevancia';
+      document.getElementById('fOnline').checked = false;
+      aplicar();
+    });
+    grade.removeAttribute('aria-busy');
+    return;
+  }
+
+  grade.innerHTML = lista.map(cardHTML).join('');
+  grade.removeAttribute('aria-busy');
+}
+
+['busca','fCat','fPreco','fOrdem','fOnline'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('input', aplicar);
+  el.addEventListener('change', aplicar);
+});
+
+// Debounce na busca
+let t;
+document.getElementById('busca').addEventListener('input', () => {
+  clearTimeout(t);
+  t = setTimeout(aplicar, 220);
+});
+</script>
+</body>
+</html>

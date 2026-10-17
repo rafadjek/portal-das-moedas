@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Carrinho — MundoMoedas</title>
+<meta name="description" content="Revise suas peças selecionadas e envie seu pedido pelo WhatsApp.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  .cart-wrap { display:grid; grid-template-columns: 1.7fr 1fr; gap:2.5rem; align-items:start; }
+  @media (max-width:900px){ .cart-wrap { grid-template-columns:1fr; } }
+
+  .ci { display:grid; grid-template-columns:110px 1fr auto; gap:1.25rem; padding:1.25rem 0; border-bottom:1px solid var(--border); align-items:center; }
+  @media (max-width:600px){ .ci { grid-template-columns:80px 1fr; } .ci__p { grid-column:1/-1; display:flex; justify-content:space-between; align-items:center; gap:1rem; } }
+
+  .ci__img { width:110px; height:110px; background:var(--cream); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  .ci__img img { width:100%; height:100%; object-fit:cover; }
+  @media (max-width:600px){ .ci__img { width:80px; height:80px; } }
+
+  .ci__name { font-size:1rem; font-weight:600; color:var(--ink); line-height:1.4; margin-bottom:.35rem; }
+  .ci__var { font-size:.82rem; color:var(--muted); margin-bottom:.5rem; }
+  .ci__price { font-family:var(--font-display); font-size:1.25rem; font-weight:700; color:var(--ink); }
+  .ci__sub { font-size:.8rem; color:var(--muted); margin-top:.15rem; }
+
+  .qtd { display:inline-flex; border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  .qtd button { width:36px; height:38px; display:grid; place-items:center; font-size:1.15rem; color:var(--text-soft); }
+  .qtd button:hover:not(:disabled){ background:var(--cream-2); color:var(--gold-main); }
+  .qtd button:disabled{ opacity:.3; cursor:not-allowed; }
+  .qtd input { width:48px; text-align:center; border:none; border-left:1.5px solid var(--border); border-right:1.5px solid var(--border); font-weight:700; height:38px; }
+  .qtd input::-webkit-outer-spin-button,.qtd input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+  .qtd input[type=number]{ -moz-appearance:textfield; }
+
+  .rm { font-size:.78rem; color:var(--muted); text-decoration:underline; margin-top:.5rem; display:inline-block; }
+  .rm:hover { color:var(--danger); }
+
+  .resumo { background:var(--cream); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.6rem; position:sticky; top:100px; }
+  @media (max-width:900px){ .resumo { position:static; } }
+  .resumo h3 { font-family:var(--font-body); font-size:.74rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; margin-bottom:1.25rem; color:var(--text-soft); }
+  .linha { display:flex; justify-content:space-between; gap:1rem; padding:.65rem 0; font-size:.93rem; color:var(--text-soft); }
+  .linha strong { color:var(--ink); }
+  .linha--total { border-top:2px solid var(--gold-main); margin-top:.75rem; padding-top:1rem; font-size:1.05rem; }
+  .linha--total strong { font-family:var(--font-display); font-size:1.6rem; color:var(--gold-main); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar__in">
+    <span>Frete para todo o Brasil &middot; Pagamento facilitado</span>
+    <span><a href="como-comprar.html">Como comprar</a></span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap header__in">
+    <a href="index.html" class="logo" aria-label="MundoMoedas — página inicial">
+      <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+      <span class="logo__text">
+        <span class="logo__name">Mundo<span>Moedas</span></span>
+        <span class="logo__tag">História em cada moeda</span>
+      </span>
+    </a>
+    <nav class="nav" data-nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="catalogo.html">Moedas</a>
+      <a href="catalogo.html?cat=colecoes">Coleções</a>
+      <a href="catalogo.html?cat=cedulas">Cédulas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a href="catalogo.html" class="icon-btn" aria-label="Buscar produtos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </a>
+      <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="burger" data-burger aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="pagehead">
+  <div class="wrap">
+    <h1>Meu Carrinho</h1>
+    <p>Revise suas peças e envie o pedido. Confirmamos a disponibilidade e o frete com você.</p>
+  </div>
+</section>
+
+<main class="section section--tight">
+  <div class="wrap">
+    <div id="vazio" hidden class="empty">
+      <h3>Seu carrinho está vazio</h3>
+      <p>Explore o catálogo e encontre a peça ideal para sua coleção.</p>
+      <a href="catalogo.html" class="btn btn--gold">Ver catálogo</a>
+    </div>
+
+    <div class="cart-wrap" id="cheio" hidden>
+      <div id="itens"></div>
+
+      <aside class="resumo">
+        <h3>Resumo do pedido</h3>
+        <div class="linha"><span>Itens</span><strong id="rItens">0</strong></div>
+        <div class="linha"><span>Unidades</span><strong id="rUn">0</strong></div>
+        <div class="linha"><span>Subtotal</span><strong id="rSub">R$ 0,00</strong></div>
+        <div class="linha"><span>Frete</span><strong style="font-size:.85rem;color:var(--muted)">Calculamos após confirmar</strong></div>
+        <div class="linha linha--total"><span>Total</span><strong id="rTot">R$ 0,00</strong></div>
+
+        <button class="btn btn--gold btn--block" id="enviar" style="margin-top:1.5rem">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.4-.2-3 .8.8-2.9-.2-.4A8 8 0 0 1 12 4z"/><path d="M8.5 9.5h1.2l.8 2 2.2-2h1.5l-2.6 2.4 2.8 2.6h-1.6l-2.3-2.2-1 2.2H7.9l.6-4z"/></svg>
+          Enviar pedido pelo WhatsApp
+        </button>
+
+        <a href="${LOJA.shopee}" id="shopeeLink" target="_blank" rel="noopener" class="btn btn--outline btn--block btn--sm" style="margin-top:.6rem">
+          Comprar direto na Shopee
+        </a>
+
+        <p style="font-size:.8rem;color:var(--muted);margin-top:1.1rem;line-height:1.6">
+          Ao enviar, abrimos o WhatsApp com a lista do seu pedido. Você confirma os dados,
+          o frete e recebe as instruções de pagamento.
+        </p>
+
+        <button id="limpar" style="width:100%;margin-top:.85rem;font-size:.78rem;color:var(--muted);text-decoration:underline">
+          Esvaziar carrinho
+        </button>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__bottom" style="border:none;justify-content:center">
+      <span>© <span id="ano"></span> MundoMoedas &middot; Do Império à República, do Brasil ao mundo.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
+document.getElementById('shopeeLink').href = LOJA.shopee;
+
+function render() {
+  const itens = Cart.read();
+  const vazio = document.getElementById('vazio');
+  const cheio = document.getElementById('cheio');
+
+  if (!itens.length) {
+    vazio.hidden = false;
+    cheio.hidden = true;
+    return;
+  }
+  vazio.hidden = true;
+  cheio.hidden = false;
+
+  document.getElementById('itens').innerHTML = itens.map(i => `
+    <div class="ci">
+      <div class="ci__img">
+        <img src="${i.imagem}" alt="${escapeHTML(i.nome)}" onerror="this.src='assets/images/placeholder.svg'">
+      </div>
+      <div>
+        <div class="ci__name">${escapeHTML(i.nome)}</div>
+        <div class="ci__var">Variação: ${escapeHTML(i.variacaoNome)}</div>
+        <div class="ci__price">${brl(i.preco)}</div>
+        <div class="ci__sub">${brl(i.preco * i.qtd)} no total</div>
+      </div>
+      <div class="ci__p">
+        <div>
+          <div class="qtd">
+            <button type="button" data-dec="${i.key}" ${i.qtd <= 1 ? 'disabled' : ''} aria-label="Diminuir">−</button>
+            <input type="number" value="${i.qtd}" min="1" data-qtd="${i.key}" aria-label="Quantidade">
+            <button type="button" data-inc="${i.key}" aria-label="Aumentar">+</button>
+          </div>
+          <button type="button" class="rm" data-rm="${i.key}">Remover</button>
+        </div>
+      </div>
+    </div>`).join('');
+
+  document.getElementById('rItens').textContent = itens.length;
+  document.getElementById('rUn').textContent    = Cart.count();
+  document.getElementById('rSub').textContent    = brl(Cart.total());
+  document.getElementById('rTot').textContent    = brl(Cart.total());
+
+  // Eventos
+  document.querySelectorAll('[data-inc]').forEach(b =>
+    b.addEventListener('click', () => {
+      const it = itens.find(x => x.key === b.dataset.inc);
+      Cart.setQtd(b.dataset.inc, it.qtd + 1);
+      render();
+    }));
+
+  document.querySelectorAll('[data-dec]').forEach(b =>
+    b.addEventListener('click', () => {
+      const it = itens.find(x => x.key === b.dataset.dec);
+      Cart.setQtd(b.dataset.dec, it.qtd - 1);
+      render();
+    }));
+
+  document.querySelectorAll('[data-qtd]').forEach(inp =>
+    inp.addEventListener('change', () => {
+      let v = parseInt(inp.value, 10);
+      if (isNaN(v) || v < 1) v = 1;
+      Cart.setQtd(inp.dataset.qtd, v);
+      render();
+    }));
+
+  document.querySelectorAll('[data-rm]').forEach(b =>
+    b.addEventListener('click', () => {
+      Cart.remove(b.dataset.rm);
+      Toast.show('Item removido');
+      render();
+    }));
+}
+
+document.getElementById('enviar').addEventListener('click', () => Cart.pedido());
+document.getElementById('limpar').addEventListener('click', () => {
+  if (!Cart.count()) return;
+  Cart.clear();
+  Toast.show('Carrinho esvaziado');
+  render();
+});
+
+render();
+</script>
+</body>
+</html>

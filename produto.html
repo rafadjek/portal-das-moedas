@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produto — MundoMoedas</title>
+<meta name="description" content="Detalhes da peça: estado de conservação, variações disponíveis e formas de pagamento.">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Layout da página de produto */
+  .prod { display:grid; grid-template-columns: 1fr 1fr; gap:3.5rem; align-items:start; }
+  @media (max-width:900px){ .prod { grid-template-columns:1fr; gap:2.5rem; } }
+
+  .prod__img {
+    aspect-ratio:1; background:var(--cream); border:1px solid var(--border);
+    border-radius:var(--radius-lg); overflow:hidden; position:sticky; top:100px;
+  }
+  .prod__img img { width:100%; height:100%; object-fit:cover; }
+  @media (max-width:900px){ .prod__img { position:static; } }
+
+  .prod__cat { font-size:.7rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-main); margin-bottom:.8rem; }
+  .prod__title { font-size:clamp(1.6rem,3.4vw,2.4rem); margin-bottom:1rem; }
+  .prod__price { font-family:var(--font-display); font-size:2.3rem; font-weight:700; color:var(--ink); margin:1.4rem 0 .5rem; }
+  .prod__from { font-size:.86rem; color:var(--muted); margin-bottom:1.2rem; }
+
+  .prod__meta { display:flex; gap:1.5rem; flex-wrap:wrap; padding:1.15rem 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:1.75rem; }
+  .prod__meta div span { display:block; font-size:.68rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
+  .prod__meta div strong { font-size:.95rem; color:var(--ink); }
+
+  .bloco { margin-bottom:2rem; }
+  .bloco h3 { font-family:var(--font-body); font-size:.74rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--text-soft); margin-bottom:.85rem; }
+
+  .var-opts { display:flex; flex-direction:column; gap:.6rem; max-height:340px; overflow-y:auto; padding-right:.4rem; }
+  .var-opt {
+    display:flex; align-items:center; gap:.9rem; padding:.85rem 1rem;
+    border:1.5px solid var(--border); border-radius:var(--radius); cursor:pointer;
+    transition:border-color .22s, background .22s;
+  }
+  .var-opt:hover { border-color:var(--gold-light); background:var(--cream); }
+  .var-opt.is-on { border-color:var(--gold-main); background:rgba(192,139,46,.07); }
+  .var-opt.is-off { opacity:.45; cursor:not-allowed; }
+  .var-opt input { accent-color:var(--gold-main); width:17px; height:17px; flex-shrink:0; }
+  .var-opt__name { flex:1; font-size:.92rem; font-weight:500; }
+  .var-opt__price { font-family:var(--font-display); font-weight:700; color:var(--ink); font-size:1.02rem; }
+  .var-opt__stk { font-size:.74rem; }
+  .stk-ok{color:var(--ok)} .stk-low{color:var(--warn)} .stk-out{color:var(--danger)}
+
+  .qtd { display:flex; align-items:center; gap:.8rem; }
+  .qtd__ctrl { display:flex; border:1.5px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+  .qtd__ctrl button { width:44px; height:46px; display:grid; place-items:center; font-size:1.3rem; color:var(--text-soft); transition:background .2s; }
+  .qtd__ctrl button:hover:not(:disabled) { background:var(--cream-2); color:var(--gold-main); }
+  .qtd__ctrl button:disabled { opacity:.35; cursor:not-allowed; }
+  .qtd__ctrl input { width:60px; text-align:center; border:none; border-left:1.5px solid var(--border); border-right:1.5px solid var(--border); font-weight:700; height:46px; }
+  .qtd__ctrl input::-webkit-outer-spin-button,.qtd__ctrl input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+  .qtd__ctrl input[type=number] { -moz-appearance:textfield; }
+
+  .desc { white-space:pre-line; color:var(--text-soft); line-height:1.8; font-size:.96rem; max-height:340px; overflow-y:auto; padding-right:.6rem; }
+
+  .aviso {
+    display:flex; gap:.85rem; padding:1.1rem 1.25rem; background:var(--cream);
+    border-left:3px solid var(--gold-main); border-radius:0 var(--radius) var(--radius) 0;
+    font-size:.9rem; color:var(--text-soft); line-height:1.65;
+  }
+  .aviso svg { width:20px; height:20px; color:var(--gold-main); flex-shrink:0; margin-top:2px; }
+
+  .rel { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1.25rem; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap topbar__in">
+    <span>Frete para todo o Brasil &middot; Pagamento facilitado</span>
+    <span><a href="como-comprar.html">Como comprar</a></span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap header__in">
+    <a href="index.html" class="logo" aria-label="MundoMoedas — página inicial">
+      <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+      <span class="logo__text">
+        <span class="logo__name">Mundo<span>Moedas</span></span>
+        <span class="logo__tag">História em cada moeda</span>
+      </span>
+    </a>
+    <nav class="nav" data-nav aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="catalogo.html">Moedas</a>
+      <a href="catalogo.html?cat=colecoes">Coleções</a>
+      <a href="catalogo.html?cat=cedulas">Cédulas</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <div class="header__actions">
+      <a href="catalogo.html" class="icon-btn" aria-label="Buscar produtos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </a>
+      <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </a>
+      <button class="burger" data-burger aria-label="Abrir menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="section section--tight">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Você está aqui">
+      <a href="index.html">Início</a><span>/</span>
+      <a href="catalogo.html">Catálogo</a><span>/</span>
+      <span id="crumbAtual">Produto</span>
+    </nav>
+
+    <div id="conteudo" aria-busy="true">
+      <div class="prod">
+        <div class="skeleton" style="aspect-ratio:1;border-radius:8px"></div>
+        <div>
+          <div class="skeleton" style="height:32px;width:45%;margin-bottom:1rem"></div>
+          <div class="skeleton" style="height:88px;margin-bottom:1rem"></div>
+          <div class="skeleton" style="height:44px;width:35%;margin-bottom:1.5rem"></div>
+          <div class="skeleton" style="height:180px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="section section--cream" id="secaoRelacionados" hidden>
+  <div class="wrap">
+    <div class="sechead">
+      <div class="sechead__title">
+        <span class="eyebrow">Você também pode gostar</span>
+        <h2>Peças relacionadas</h2>
+      </div>
+    </div>
+    <div class="rel" id="relacionados"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
+          <span class="logo__text">
+            <span class="logo__name">Mundo<span>Moedas</span></span>
+            <span class="logo__tag">História em cada moeda</span>
+          </span>
+        </a>
+        <p class="footer__about">Peças selecionadas com rigor para quem coleciona. Do Império à República, do Brasil ao mundo.</p>
+      </div>
+      <div>
+        <h4>Categorias</h4>
+        <a href="catalogo.html">Moedas do Brasil</a>
+        <a href="catalogo.html?cat=cedulas">Cédulas</a>
+        <a href="catalogo.html?cat=colecoes">Coleções e Lotes</a>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="como-comprar.html">Como comprar</a>
+        <a href="contato.html">Contato</a>
+        <a href="carrinho.html">Meu carrinho</a>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <a href="https://shopee.com.br/shop/486896133" target="_blank" rel="noopener">Loja na Shopee</a>
+        <a href="#" data-whatsapp>Pedir pelo WhatsApp</a>
+        <a href="mailto:contato@mundomoedas.com.br">contato@mundomoedas.com.br</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="ano"></span> MundoMoedas. Todos os direitos reservados.</span>
+      <span>Do Império à República, do Brasil ao mundo.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+let PROD = null;
+let QTD  = 1;
+
+(async () => {
+  const id = new URLSearchParams(location.search).get('id');
+  const todos = await carregarCatalogo();
+  const box = document.getElementById('conteudo');
+
+  if (!id) {
+    box.innerHTML = '<div class="empty"><h3>Produto não informado</h3><p>Escolha uma peça no catálogo.</p><a href="catalogo.html" class="btn btn--outline">Ver catálogo</a></div>';
+    box.removeAttribute('aria-busy');
+    return;
+  }
+
+  PROD = todos.find(p => String(p.id) === String(id));
+  if (!PROD) {
+    box.innerHTML = '<div class="empty"><h3>Peça não encontrada</h3><p>Ela pode ter sido removida do catálogo.</p><a href="catalogo.html" class="btn btn--outline">Ver catálogo</a></div>';
+    box.removeAttribute('aria-busy');
+    return;
+  }
+
+  document.title = `${PROD.nome} — MundoMoedas`;
+  document.getElementById('crumbAtual').textContent = PROD.nome.slice(0, 42);
+  const md = document.querySelector('meta[name="description"]');
+  if (md) md.setAttribute('content', PROD.nome.slice(0, 155));
+
+  render();
+  box.removeAttribute('aria-busy');
+  relacionados(todos);
+})();
+
+function render() {
+  const p = PROD;
+  const vs = p.variacoes || [];
+  const temVar = vs.length > 0;
+  const { min, max } = precos(p);
+  const estTotal = estoqueInfo(estoqueTotal(p));
+  const cat = CATEGORIAS[categorizar(p.nome)] || 'Moedas';
+
+  const varHTML = temVar
+    ? `<div class="var-opts" role="radiogroup" aria-label="Escolha a variação">
+        ${vs.map((v, i) => {
+          const est = Number(v.estoque) || 0;
+          const cls = est <= 0 ? 'out' : (est <= 5 ? 'low' : 'ok');
+          const stk = est <= 0 ? 'Indisponível' : (est <= 5 ? `Últimas ${est}` : `${est} un.`);
+          return `<label class="var-opt${i === 0 && est > 0 ? ' is-on' : ''}${est <= 0 ? ' is-off' : ''}">
+            <input type="radio" name="variacao" value="${i}" ${i === 0 && est > 0 ? 'checked' : ''} ${est <= 0 ? 'disabled' : ''}>
+            <span class="var-opt__name">${escapeHTML(v.nome || 'Padrão')}</span>
+            <span class="stk-${cls} var-opt__stk">${stk}</span>
+            <span class="var-opt__price">${brl(v.preco)}</span>
+          </label>`;
+        }).join('')}
+       </div>`
+    : `<p class="lead">Peça única, sem variações.</p>`;
+
+  document.getElementById('conteudo').innerHTML = `
+  <div class="prod">
+    <div>
+      <div class="prod__img">
+        <img src="${p.imagem}" alt="${escapeHTML(p.nome)}" onerror="this.src='assets/images/placeholder.svg'">
+      </div>
+    </div>
+
+    <div>
+      <span class="prod__cat">${cat}</span>
+      <h1 class="prod__title">${escapeHTML(p.nome)}</h1>
+      <p class="lead card__stock card__stock--${estTotal.cls}">${estTotal.txt}</p>
+
+      <div class="prod__price">${brl(min)}</div>
+      ${max > min ? `<p class="prod__from">Preços variam de ${brl(min)} a ${brl(max)} conforme a variação</p>` : ''}
+
+      <div class="prod__meta">
+        <div><span>Categoria</span><strong>${cat}</strong></div>
+        <div><span>Itens</span><strong>${temVar ? vs.length + ' variação' + (vs.length > 1 ? 'ões' : '') : 'Peça única'}</strong></div>
+        <div><span>Disponibilidade</span><strong>${estoqueTotal(p)} un.</strong></div>
+      </div>
+
+      <div class="bloco">
+        <h3>${temVar ? 'Escolha a variação' : 'Quantidade'}</h3>
+        ${varHTML}
+      </div>
+
+      <div class="bloco">
+        <div class="qtd">
+          <div class="qtd__ctrl">
+            <button type="button" id="menos" aria-label="Diminuir quantidade">−</button>
+            <input type="number" id="qtd" value="1" min="1" max="1" aria-label="Quantidade">
+            <button type="button" id="mais" aria-label="Aumentar quantidade">+</button>
+          </div>
+          <span id="qtdEstoque" class="card__stock"></span>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:2rem">
+        <button class="btn btn--gold" id="add" ${estTotal.cls === 'out' ? 'disabled' : ''} style="flex:1;min-width:200px">
+          ${estTotal.cls === 'out' ? 'Indisponível' : 'Adicionar ao carrinho'}
+        </button>
+        <a class="btn btn--outline" href="${LOJA.shopee}" target="_blank" rel="noopener">Comprar na Shopee</a>
+      </div>
+
+      ${p.descricao ? `
+      <div class="bloco">
+        <h3>Descrição</h3>
+        <div class="desc">${escapeHTML(p.descricao)}</div>
+      </div>` : ''}
+
+      <div class="aviso">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>
+        <div>
+          <strong style="color:var(--ink)">Peças autênticas, selecionadas com rigor.</strong><br>
+          Todos os itens passam por inspeção visual antes do envio. O estado de conservação
+          aparece na descrição. Em caso de dúvida, fale com a gente pelo WhatsApp —
+          mandamos fotos detalhadas da peça.
+        </div>
+      </div>
+    </div>
+  </div>`;
+
+  // ---- Interações ----
+  const qtd = document.getElementById('qtd');
+  const menos = document.getElementById('menos');
+  const mais = document.getElementById('mais');
+  const lblEstoque = document.getElementById('qtdEstoque');
+
+  function varSel() {
+    const r = document.querySelector('input[name="variacao"]:checked');
+    return r ? (PROD.variacoes || [])[Number(r.value)] : null;
+  }
+
+  function syncQtd() {
+    const v = varSel();
+    const disp = v ? (Number(v.estoque) || 0) : (Number(PROD.estoque) || estoqueTotal(PROD));
+    const max = Math.max(1, disp);
+    qtd.max = max;
+    if (QTD > max) QTD = max;
+    if (QTD < 1) QTD = 1;
+    qtd.value = QTD;
+    menos.disabled = QTD <= 1;
+    mais.disabled = QTD >= max;
+    const e = estoqueInfo(disp);
+    lblEstoque.textContent = e.txt;
+    lblEstoque.className = 'card__stock card__stock--' + e.cls;
+  }
+
+  document.querySelectorAll('input[name="variacao"]').forEach(r => {
+    r.addEventListener('change', () => {
+      document.querySelectorAll('.var-opt').forEach(o => o.classList.remove('is-on'));
+      r.closest('.var-opt').classList.add('is-on');
+      QTD = 1;
+      syncQtd();
+      // Atualiza o preco principal
+      const v = varSel();
+      if (v) {
+        const el = document.querySelector('.prod__price');
+        el.textContent = brl(v.preco);
+        const from = document.querySelector('.prod__from');
+        if (from) from.style.display = 'none';
+      }
+    });
+  });
+
+  menos.addEventListener('click', () => { QTD = Math.max(1, QTD - 1); qtd.value = QTD; syncQtd(); });
+  mais .addEventListener('click', () => { QTD = Math.min(Number(qtd.max), QTD + 1); qtd.value = QTD; syncQtd(); });
+  qtd.addEventListener('change', () => {
+    let v = parseInt(qtd.value, 10);
+    if (isNaN(v) || v < 1) v = 1;
+    if (v > Number(qtd.max)) v = Number(qtd.max);
+    QTD = v; qtd.value = v; syncQtd();
+  });
+
+  document.getElementById('add').addEventListener('click', () => {
+    const v = varSel();
+    Cart.add(PROD, v, QTD);
+  });
+
+  syncQtd();
+}
+
+async function relacionados(todos) {
+  const p = PROD;
+  if (!p) return;
+
+  const disp = todos.filter(o => o.id !== p.id && estoqueTotal(o) > 0);
+  const minha = categorizar(p.nome);
+
+  // Prioriza a mesma categoria; se não houver suficiente, completa com moedas
+  const mesma  = disp.filter(o => categorizar(o.nome) === minha);
+  const gerais = disp.filter(o => categorizar(o.nome) === 'moedas' && !mesma.includes(o));
+
+  const lista = [...mesma, ...gerais]
+    .sort((a, b) => precos(b).max - precos(a).max)
+    .slice(0, 4);
+
+  if (!lista.length) return;
+
+  document.getElementById('relacionados').innerHTML = lista.map(cardHTML).join('');
+  document.getElementById('secaoRelacionados').hidden = false;
+}
+</script>
+</body>
+</html>

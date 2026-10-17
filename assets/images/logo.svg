@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="MundoMoedas">
+  <defs>
+    <linearGradient id="mmGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F0DFA8"/>
+      <stop offset="45%" stop-color="#C08B2E"/>
+      <stop offset="100%" stop-color="#8A6318"/>
+    </linearGradient>
+    <linearGradient id="mmCore" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2A2318"/>
+      <stop offset="100%" stop-color="#14110D"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Anel externo (borda da moeda) -->
+  <circle cx="32" cy="32" r="30" fill="url(#mmGold)"/>
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#F3E3B8" stroke-width="1" opacity=".6"/>
+  <!-- Recorte interno -->
+  <circle cx="32" cy="32" r="25.5" fill="url(#mmCore)"/>
+
+  <!-- Continentes estilizados -->
+  <g fill="#C08B2E">
+    <path d="M17 21.5c2.6-2.3 6.4-3.3 9.3-1.9 1.7.8 2.2 2.4 1.2 3.7-1 1.4-3.4 1.6-4.6 2.9-1.2 1.3-.5 3-1.9 4.2-1.4 1.2-3.5.9-4.6-.5-1.2-1.5-1-4.7-.6-6.7.2-.9.8-1.5 1.2-1.7z"/>
+    <path d="M31 20.1c1.9-.7 4.6-.5 5.9.9 1 1.1.5 2.5-.8 3-1.7.7-3.2-.4-4.8.2-1.5.6-2.4 2.3-3.6 2-1.1-.3-1.2-1.8-.6-2.8.7-1.2 1.9-2.7 3.9-3.3z"/>
+    <path d="M40.5 27.6c2.2-.9 5-.4 6.2 1.5.9 1.5-.2 3-1.5 4-1.3 1-2.2 2.3-2.4 4-.2 1.7-1.7 3-3.3 2.6-1.6-.4-2-2.3-1.5-3.9.5-1.6.1-3.3-.6-4.7-.7-1.4-.4-2.7 1.1-3.5z"/>
+    <path d="M24.8 32.5c1.6-.8 3.9-.3 4.6 1.3.6 1.4-.5 2.6-.6 4-.1 1.7-1.3 3.3-3 3.4-1.6.1-2.6-1.4-2.5-3 .1-1.4.9-2.4.9-3.7 0-1-.5-1.6 1.6-2z"/>
+    <path d="M31 39.4c1.2-.6 2.9-.2 3.4 1 .4 1-.2 2-.4 3-.2 1 .1 2.2-.9 2.7-1 .5-2.2-.2-2.6-1.2-.4-1.1-.8-2.2-.5-3.2.2-.8.6-1.9 1-2.3z"/>
+  </g>
+
+  <!-- Linhas de meridiano -->
+  <g stroke="#C08B2E" stroke-width=".7" opacity=".5">
+    <path d="M32 8v6M32 50v6M8 32h6M50 32h6"/>
+  </g>
+</svg>

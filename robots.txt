@@ -1,11 +1,10 @@
-# Portal das Moedas - robots.txt
-# Permite a indexação completa do site pelos buscadores.
+# MundoMoedas - robots.txt
 
 User-agent: *
 Allow: /
 
-# Bloqueia áreas que não devem ser indexadas
-Disallow: /src/data/
+# Páginas de carrinho e busca não devem ser indexadas
+Disallow: /carrinho.html
+Disallow: /*?id=
 
-# Sitemap
-Sitemap: https://rafadjek.github.io/portal-das-moedas/sitemap.xml
+Sitemap: https://mundomoedas.com.br/sitemap.xml

@@ -7,7 +7,7 @@
 const LOJA = {
   nome: 'MundoMoedas',
   // ALTERE AQUI o seu WhatsApp (com código do país, só números)
-  whatsapp: '5511999999999',
+  whatsapp: '5511943016366',
   shopee: 'https://shopee.com.br/shop/486896133',
   email: 'contato@mundomoedas.com.br'
 };

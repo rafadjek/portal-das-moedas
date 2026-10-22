@@ -144,6 +144,24 @@
   </div>
 </section>
 
+<!-- ============ BANNER PROMOCIONAL SHOPEE ============ -->
+<section class="promo-banner">
+  <div class="wrap">
+    <div class="promo-banner__title">Brinde exclusivo para você!</div>
+    <div class="promo-banner__txt">
+      Compre qualquer produto na nossa <strong>loja da Shopee</strong>, abra o chat e envie a mensagem:
+    </div>
+    <div class="promo-banner__code">"Vim pelo site MundoMoedas"</div>
+    <div class="promo-banner__txt" style="margin-bottom:0;">
+      Você ganha um <strong>brinde surpresa</strong> na sua próxima compra!
+    </div>
+    <a href="https://shopee.com.br/shop/486896133" class="promo-banner__btn" target="_blank" rel="noopener">
+      Ir para a Shopee
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
@@ -162,6 +180,7 @@
         <a href="catalogo.html">Moedas do Brasil</a>
         <a href="catalogo.html?cat=cedulas">Cédulas</a>
         <a href="catalogo.html?cat=colecoes">Coleções e Lotes</a>
+        <a href="catalogo.html?cat=ouro">Moedas de Ouro</a>
       </div>
       <div>
         <h4>Institucional</h4>
@@ -285,7 +304,7 @@ function render() {
         <button class="btn btn--gold" id="add" ${estTotal.cls === 'out' ? 'disabled' : ''} style="flex:1;min-width:200px">
           ${estTotal.cls === 'out' ? 'Indisponível' : 'Adicionar ao carrinho'}
         </button>
-        <a class="btn btn--outline" href="${LOJA.shopee}" target="_blank" rel="noopener">Comprar na Shopee</a>
+        <a class="btn btn--outline" href="${p.shopeeUrl || LOJA.shopee}" target="_blank" rel="noopener">Comprar na Shopee</a>
       </div>
 
       ${p.descricao ? `

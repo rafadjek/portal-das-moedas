@@ -822,3 +822,161 @@ h3 { font-size: clamp(1.15rem, 2vw, 1.5rem); }
 @media (max-width: 520px) {
   .toast { right: 1rem; left: 1rem; bottom: 1rem; max-width: none; }
 }
+
+/* ---------- Detecção mobile / body classes ---------- */
+body.is-mobile { touch-action: manipulation; }
+
+/* ---------- Banner promocional Shopee ---------- */
+.promo-banner {
+  background: linear-gradient(135deg, var(--gold-main) 0%, var(--bronze) 100%);
+  color: var(--white);
+  padding: 1.6rem 1.5rem;
+  border-radius: var(--radius-lg);
+  margin: 2.5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.promo-banner::before {
+  content: '🎁';
+  position: absolute;
+  top: -12px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.2rem;
+  opacity: .25;
+}
+.promo-banner__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  letter-spacing: -.01em;
+}
+.promo-banner__txt {
+  font-size: .95rem;
+  color: rgba(255,255,255,.92);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+.promo-banner__code {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  background: rgba(255,255,255,.15);
+  padding: .55rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.35);
+  margin-bottom: 1rem;
+}
+.promo-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: var(--white);
+  color: var(--bronze);
+  padding: .95rem 1.75rem;
+  border-radius: var(--radius);
+  font-weight: 800;
+  font-size: .88rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  transition: transform .2s, box-shadow .2s;
+}
+.promo-banner__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.22);
+}
+.promo-banner__btn svg { width: 16px; height: 16px; }
+
+@media (max-width: 640px) {
+  .promo-banner { padding: 1.4rem 1.2rem; margin: 2rem 0; }
+  .promo-banner__title { font-size: 1.2rem; }
+  .promo-banner__txt { font-size: .9rem; }
+  .promo-banner__btn { width: 100%; justify-content: center; padding: 1rem 1.5rem; }
+}
+
+/* ---------- Melhorias mobile gerais ---------- */
+@media (max-width: 640px) {
+  .hero__in { padding: 2.5rem 0; gap: 2rem; }
+  .hero__title { font-size: clamp(1.9rem, 10vw, 2.8rem); }
+  .hero__sub { font-size: 1.05rem; max-width: 100%; }
+  .hero__cta { flex-direction: column; align-items: stretch; }
+  .hero__cta .btn { width: 100%; justify-content: center; }
+  .hero__coin { width: min(200px, 70%); }
+  .hero__aside { display: none; }
+
+  .catbar__grid { grid-template-columns: 1fr; }
+  .catbar__item { border-right: none; border-bottom: 1px solid var(--border); }
+  .catbar__item:last-child { border-bottom: none; }
+
+  .controls { grid-template-columns: 1fr; gap: .7rem; padding: .9rem 1rem; }
+  .field input, .field select { padding: .7rem .95rem; font-size: .9rem; }
+
+  .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer h4 { margin-top: 1.5rem; }
+
+  .prod { gap: 2rem; }
+  .prod__price { font-size: 2rem; }
+  .var-opts { max-height: 260px; }
+  .desc { max-height: 240px; }
+
+  .sechead { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .link-more { align-self: flex-start; }
+}
+
+/* ---------- Destaque busca na home ---------- */
+.busca-destaque {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+.busca-destaque__title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .75rem;
+}
+.busca-destaque__txt {
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  max-width: 34rem;
+  margin-inline: auto;
+}
+.busca-destaque__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: var(--gold-main);
+  color: var(--white);
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  font-weight: 800;
+  font-size: .9rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  box-shadow: 0 8px 24px rgba(184,134,11,.25);
+  transition: transform .2s, box-shadow .2s;
+}
+.busca-destaque__btn:hover {
+  background: var(--bronze);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(184,134,11,.35);
+}
+.busca-destaque__btn svg { width: 16px; height: 16px; }
+
+@media (max-width: 640px) {
+  .busca-destaque { padding: 2rem 1.5rem; margin: 2rem 0; }
+  .busca-destaque__title { font-size: 1.3rem; }
+  .busca-destaque__btn { width: 100%; justify-content: center; }
+}

@@ -302,8 +302,17 @@ function escapeHTML(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+/* ---------- Detecção mobile ---------- */
+function detectMobile() {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    || (window.innerWidth <= 768 && 'ontouchstart' in window);
+  if (isMobile) document.body.classList.add('is-mobile');
+  return isMobile;
+}
+
 /* ---------- Inicialização ---------- */
 document.addEventListener('DOMContentLoaded', () => {
+  detectMobile();
   initHeader();
   document.querySelectorAll('[data-whatsapp]').forEach(b => {
     b.addEventListener('click', ev => {

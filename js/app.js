@@ -147,6 +147,7 @@ function brl(v) {
 function estoqueInfo(item) {
   const n = Number(item) || 0;
   if (n <= 0) return { txt: 'Indisponível', cls: 'out' };
+  if (n === 1) return { txt: 'Última unidade', cls: 'low' };
   if (n <= 5)  return { txt: `Últimas ${n} unidades`, cls: 'low' };
   return { txt: `${n} disponíveis`, cls: 'ok' };
 }

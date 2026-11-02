@@ -109,6 +109,7 @@ test('peça: mostra ano, nome, faixa de preço, variações e link direto da Sho
   assert.ok(html.includes('R$ 5.795,00'));
   assert.equal((html.match(/<label class="var-opt( is-on| is-off)*">/g) || []).length, 2);
   assert.ok(html.includes('2 variações'), 'plural correto de variações');
+  assert.ok(!/Últimas 1[^0-9]/.test(html), 'singular quando resta uma unidade');
   assert.ok(html.includes('id="add" style="flex:1'), 'botão do carrinho habilitado');
   assert.ok(html.includes('i.486896133.19799075820'), 'o link da Shopee deve apontar para a peça');
 });

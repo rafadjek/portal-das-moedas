@@ -161,7 +161,7 @@ function render() {
         ${vs.map((v, i) => {
           const est = Number(v.estoque) || 0;
           const cls = est <= 0 ? 'out' : (est <= 5 ? 'low' : 'ok');
-          const stk = est <= 0 ? 'Indisponível' : (est <= 5 ? `Últimas ${est}` : `${est} un.`);
+          const stk = est <= 0 ? 'Indisponível' : (est === 1 ? 'Última' : est <= 5 ? `Últimas ${est}` : `${est} un.`);
           return `<label class="var-opt${i === 0 && est > 0 ? ' is-on' : ''}${est <= 0 ? ' is-off' : ''}">
             <input type="radio" name="variacao" value="${i}" ${i === 0 && est > 0 ? 'checked' : ''} ${est <= 0 ? 'disabled' : ''}>
             <span class="var-opt__name">${escapeHTML(v.nome || 'Padrão')}</span>

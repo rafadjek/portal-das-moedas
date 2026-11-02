@@ -109,7 +109,7 @@ test('peça: mostra ano, nome, faixa de preço, variações e link direto da Sho
   assert.ok(html.includes('R$ 5.795,00'));
   assert.equal((html.match(/<label class="var-opt( is-on| is-off)*">/g) || []).length, 2);
   assert.ok(html.includes('2 variações'), 'plural correto de variações');
-  assert.ok(!/<button[^>]*id="add"[^>]*disabled/.test(html));
+  assert.ok(html.includes('id="add" style="flex:1'), 'botão do carrinho habilitado');
   assert.ok(html.includes('i.486896133.19799075820'), 'o link da Shopee deve apontar para a peça');
 });
 
@@ -122,7 +122,7 @@ test('peça: mostra 4 peças relacionadas', opts, async () => {
 test('peça esgotada: botão de carrinho desabilitado', opts, async () => {
   const esgotada = catalogo.find(p => p.estoque_total === 0);
   const html = await dom('/produto.html?id=' + esgotada.id);
-  assert.ok(/<button[^>]*id="add"[^>]*disabled/.test(html));
+  assert.ok(html.includes('id="add" disabled="" style="flex:1'), 'botão do carrinho desabilitado');
 });
 
 test('peça: sem id ou com id inexistente leva de volta ao catálogo', opts, async () => {

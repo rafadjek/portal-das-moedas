@@ -164,3 +164,32 @@ test('sitemap lista as páginas atuais e não o catalogo.html', () => {
   const datas = [...xml.matchAll(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/g)].map(m => m[1]);
   assert.ok(datas.length >= 4 && datas.every(d => d >= '2026-11-02'), 'lastmod atualizado para o novo visual');
 });
+
+/* ---------- Régua de épocas ---------- */
+test('régua: uma barra para cada uma das 13 décadas (1870 a 1990)', opts, async () => {
+  const html = await dom('/index.html');
+  const decadas = [...html.matchAll(/class="epoca" data-decada="(\d+)"/g)].map(m => Number(m[1]));
+  assert.deepEqual(decadas, [1870, 1880, 1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990]);
+});
+
+test('régua: ?decada=1930 mostra só as 27 peças dos anos 1930', opts, async () => {
+  const html = await dom('/index.html?decada=1930');
+  const anos = [...html.matchAll(/class="peca__ano">(\d{4})</g)].map(m => Number(m[1]));
+  assert.equal(pecas(html).length, 27);
+  assert.ok(anos.length === 27 && anos.every(a => a >= 1930 && a <= 1939));
+  assert.ok(html.includes('data-decada="1930" aria-pressed="true"'));
+  assert.ok(/<strong>27<\/strong> de 167/.test(html));
+});
+
+test('régua: década inválida na URL é ignorada', opts, async () => {
+  const html = await dom('/index.html?decada=1935');
+  assert.equal(pecas(html).length, 167);
+});
+
+test('régua: combina com o filtro de tipo (barras refletem o filtro)', opts, async () => {
+  const html = await dom('/index.html?grupo=cedulas');
+  const alturas = [...html.matchAll(/class="epoca" data-decada="\d+"[^>]*style="--h: ?(\d+)%/g)].map(m => Number(m[1]));
+  assert.ok(alturas.length > 0 && Math.max(...alturas) === 100, 'a barra mais alta ocupa 100%');
+  const total = [...html.matchAll(/class="epoca" data-decada="(\d+)"[^>]*title="[^"]*?(\d+) pe/g)].reduce((s, m) => s + Number(m[2]), 0);
+  assert.ok(total > 0 && total <= 14, 'só cédulas com ano (14 cédulas no total)');
+});

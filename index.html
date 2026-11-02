@@ -25,9 +25,23 @@
 <main>
   <h1 class="sr-only">MundoMoedas: moedas antigas, cédulas e lotes</h1>
 
+  <section class="vitrine" aria-label="Apresentação e régua de épocas">
+    <div class="wrap vitrine__in">
+      <p class="vitrine__lema">Mais que moedas, são pedaços da nossa história.</p>
+      <div class="vitrine__regua">
+        <div class="regua__cab">
+          <span>Peças por década. Toque numa barra para filtrar.</span>
+          <button type="button" id="reguaLimpar" hidden>Limpar década</button>
+        </div>
+        <div class="regua__barras" id="regua" role="group" aria-label="Filtrar por década"></div>
+      </div>
+    </div>
+  </section>
+
   <section class="filtros" aria-label="Filtros do catálogo">
     <div class="wrap filtros__in">
       <div class="chips" id="chips" role="group" aria-label="Tipo de peça"></div>
+      <span id="contagem" aria-live="polite"></span>
       <label class="ordem">
         <span>Ordenar</span>
         <select id="ordem">
@@ -39,11 +53,6 @@
       </label>
     </div>
   </section>
-
-  <div class="wrap lema">
-    <span>Mais que moedas, são pedaços da nossa história.</span>
-    <span id="contagem" aria-live="polite"></span>
-  </div>
 
   <div id="grade" aria-busy="true">
     <div class="peca"><div class="peca__foto skeleton"></div></div>

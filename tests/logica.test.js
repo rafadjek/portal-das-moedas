@@ -102,7 +102,7 @@ test('norm remove acento e caixa', () => {
 
 test('estadoDaURL lê parâmetros válidos', () => {
   assert.deepEqual(L.estadoDaURL('?q=reis&grupo=cruzeiros&ordem=maior'),
-    { q: 'reis', grupo: 'cruzeiros', ordem: 'maior' });
+    { q: 'reis', grupo: 'cruzeiros', ordem: 'maior', decada: '' });
 });
 
 test('estadoDaURL traduz parâmetros antigos ?cat=', () => {
@@ -115,11 +115,42 @@ test('estadoDaURL ignora valores inválidos ou sem equivalente', () => {
   assert.equal(L.estadoDaURL('?cat=acessorios').grupo, '');
   assert.equal(L.estadoDaURL('?grupo=xyz').grupo, '');
   assert.equal(L.estadoDaURL('?ordem=foo').ordem, 'destaques');
-  assert.deepEqual(L.estadoDaURL(''), { q: '', grupo: '', ordem: 'destaques' });
+  assert.deepEqual(L.estadoDaURL(''), { q: '', grupo: '', ordem: 'destaques', decada: '' });
 });
 
 test('estadoParaURL omite valores padrão e codifica a busca', () => {
   assert.equal(L.estadoParaURL({ q: '', grupo: '', ordem: 'destaques' }), '');
   assert.equal(L.estadoParaURL({ q: 'réis 1896', grupo: 'reis', ordem: 'maior' }),
     'q=r%C3%A9is+1896&grupo=reis&ordem=maior');
+});
+
+/* ---------- Régua de épocas (décadas) ---------- */
+test('decadaDe devolve a década do ano do nome, ou null', () => {
+  assert.equal(L.decadaDe({ nome: '40 Réis 1896 Original' }), 1890);
+  assert.equal(L.decadaDe({ nome: 'Moeda 1930' }), 1930);
+  assert.equal(L.decadaDe({ nome: 'Cédulas do Sudão SOB/FE' }), null);
+});
+
+test('contarDecadas conta só as peças com ano', () => {
+  const c = L.contarDecadas([prod('a 1896'), prod('b 1891'), prod('c 1930'), prod('sem data')]);
+  assert.deepEqual(c, { 1890: 2, 1930: 1 });
+});
+
+test('filtrar por década mantém só as peças daquela década', () => {
+  const lista = [prod('a 1896'), prod('b 1931'), prod('sem data')];
+  assert.deepEqual(L.filtrar(lista, { decada: 1930 }).map(p => p.nome), ['b 1931']);
+  assert.deepEqual(L.filtrar(lista, {}).length, 3);
+});
+
+test('estadoDaURL lê e valida a década', () => {
+  assert.equal(L.estadoDaURL('?decada=1930').decada, 1930);
+  assert.equal(L.estadoDaURL('?decada=1935').decada, '');
+  assert.equal(L.estadoDaURL('?decada=abc').decada, '');
+  assert.equal(L.estadoDaURL('?decada=1200').decada, '');
+  assert.equal(L.estadoDaURL('').decada, '');
+});
+
+test('estadoParaURL inclui a década quando há', () => {
+  assert.equal(L.estadoParaURL({ q: '', grupo: '', ordem: 'destaques', decada: 1930 }), 'decada=1930');
+  assert.equal(L.estadoParaURL({ q: '', grupo: '', ordem: 'destaques', decada: '' }), '');
 });

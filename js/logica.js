@@ -84,11 +84,30 @@ function estadoEstoque(p) {
   return 'ok';
 }
 
-/** Filtra por texto (nome, sem acento) e por grupo; grupo desconhecido não casa com nada */
-function filtrar(lista, { q = '', grupo = '' } = {}) {
+/* ---------- Régua de épocas ---------- */
+
+/** Década (1890, 1930...) do ano que aparece no nome, ou null */
+function decadaDe(p) {
+  const ano = extrairAno(p.nome);
+  return ano === null ? null : Math.floor(ano / 10) * 10;
+}
+
+/** { década: quantidade } só das peças que têm ano */
+function contarDecadas(lista) {
+  const c = {};
+  lista.forEach(p => {
+    const d = decadaDe(p);
+    if (d !== null) c[d] = (c[d] || 0) + 1;
+  });
+  return c;
+}
+
+/** Filtra por texto (nome, sem acento), grupo e década; grupo desconhecido não casa com nada */
+function filtrar(lista, { q = '', grupo = '', decada = '' } = {}) {
   const busca = norm(q);
   if (grupo && !GRUPOS.some(g => g.id === grupo)) return [];
   return lista.filter(p => {
+    if (decada !== '' && decadaDe(p) !== Number(decada)) return false;
     if (grupo && !gruposDe(p).includes(grupo)) return false;
     if (busca && !norm(p.nome).includes(busca)) return false;
     return true;
@@ -126,18 +145,22 @@ function estadoDaURL(search) {
   let grupo = params.get('grupo') || '';
   if (!ids.includes(grupo)) grupo = CAT_ANTIGA[params.get('cat')] || '';
   const ordem = params.get('ordem');
+  const d = Number(params.get('decada'));
+  const decada = Number.isInteger(d) && d % 10 === 0 && d >= 1500 && d <= 2090 ? d : '';
   return {
     q: (params.get('q') || '').trim(),
     grupo,
-    ordem: ORDENS[ordem] ? ordem : 'destaques'
+    ordem: ORDENS[ordem] ? ordem : 'destaques',
+    decada
   };
 }
 
 /** Query string sem "?", omitindo o que é padrão */
-function estadoParaURL({ q = '', grupo = '', ordem = 'destaques' } = {}) {
+function estadoParaURL({ q = '', grupo = '', ordem = 'destaques', decada = '' } = {}) {
   const params = new URLSearchParams();
   if (q) params.set('q', q);
   if (grupo) params.set('grupo', grupo);
+  if (decada !== '') params.set('decada', String(decada));
   if (ordem && ordem !== 'destaques') params.set('ordem', ordem);
   return params.toString();
 }
@@ -145,6 +168,6 @@ function estadoParaURL({ q = '', grupo = '', ordem = 'destaques' } = {}) {
 if (typeof module !== 'undefined') {
   module.exports = {
     norm, precos, estoqueTotal, extrairAno, GRUPOS, gruposDe, contarGrupos,
-    estadoEstoque, filtrar, ordenar, estadoDaURL, estadoParaURL
+    estadoEstoque, decadaDe, contarDecadas, filtrar, ordenar, estadoDaURL, estadoParaURL
   };
 }

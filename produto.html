@@ -261,20 +261,22 @@ function render() {
     lblEstoque.className = 'card__stock card__stock--' + e.cls;
   }
 
+  /** O preço principal acompanha a variação marcada */
+  function syncPreco() {
+    const v = varSel();
+    if (!v) return;
+    document.querySelector('.prod__price').textContent = brl(v.preco);
+    const from = document.querySelector('.prod__from');
+    if (from) from.style.display = 'none';
+  }
+
   document.querySelectorAll('input[name="variacao"]').forEach(r => {
     r.addEventListener('change', () => {
       document.querySelectorAll('.var-opt').forEach(o => o.classList.remove('is-on'));
       r.closest('.var-opt').classList.add('is-on');
       QTD = 1;
       syncQtd();
-      // Atualiza o preço principal
-      const v = varSel();
-      if (v) {
-        const el = document.querySelector('.prod__price');
-        el.textContent = brl(v.preco);
-        const from = document.querySelector('.prod__from');
-        if (from) from.style.display = 'none';
-      }
+      syncPreco();
     });
   });
 
@@ -293,6 +295,7 @@ function render() {
   });
 
   syncQtd();
+  syncPreco();
 }
 
 /** Até 4 peças em estoque do mesmo tipo; se faltar, completa com as de maior valor */

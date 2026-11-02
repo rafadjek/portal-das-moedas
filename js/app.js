@@ -135,42 +135,12 @@ function brl(v) {
   });
 }
 
-/** Remove acentos e normaliza para busca */
-function norm(s) {
-  return String(s || '')
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
-    .trim();
-}
-
 function estoqueInfo(item) {
   const n = Number(item) || 0;
   if (n <= 0) return { txt: 'Indisponível', cls: 'out' };
   if (n <= 5)  return { txt: `Últimas ${n} unidades`, cls: 'low' };
   return { txt: `${n} disponíveis`, cls: 'ok' };
 }
-
-/** Descobre a categoria amigável a partir do nome do produto */
-function categorizar(nome) {
-  const n = norm(nome);
-  if (/cedula|nota|celula|bilhete/.test(n))  return 'cedulas';
-  if (/lote|conjunto|colecao|kit/.test(n))   return 'colecoes';
-  if (/busto|suporte|album|estojo|encosto|acessorio|chaveiro|bolsa|caixa/.test(n)) return 'acessorios';
-  if (/ouro|platina|prata/.test(n))          return 'ouro';
-  if (/comemorativ|olimpiad|jogos|world cup|copa/.test(n)) return 'comemorativas';
-  return 'moedas';
-}
-
-const CATEGORIAS = {
-  moedas:        'Moedas do Brasil',
-  antigas:       'Moedas Antigas',
-  ouro:          'Moedas de Ouro',
-  comemorativas: 'Moedas Comemorativas',
-  acessorios:    'Acessórios',
-  cedulas:       'Cédulas',
-  colecoes:      'Coleções e Lotes'
-};
 
 /* ---------- Toast ---------- */
 const Toast = {
@@ -242,58 +212,6 @@ async function carregarCatalogo() {
     CATALOGO = [];
   }
   return CATALOGO;
-}
-
-/** Preço mínimo/máximo de um produto */
-function precos(p) {
-  if (p.variacoes && p.variacoes.length) {
-    const vs = p.variacoes.map(v => Number(v.preco) || 0).filter(v => v > 0);
-    if (vs.length) return { min: Math.min(...vs), max: Math.max(...vs) };
-  }
-  return { min: Number(p.preco) || 0, max: Number(p.preco) || 0 };
-}
-
-/** Estoque total somando variações */
-function estoqueTotal(p) {
-  if (p.variacoes && p.variacoes.length) {
-    return p.variacoes.reduce((s, v) => s + (Number(v.estoque) || 0), 0);
-  }
-  return Number(p.estoque) || 0;
-}
-
-/* ---------- Card de produto ---------- */
-function cardHTML(p) {
-  const { min, max } = precos(p);
-  const est = estoqueInfo(estoqueTotal(p));
-  const cat = CATEGORIAS[categorizar(p.nome)] || 'Moedas';
-  const novo = p.publico_match === 'SIM';
-
-  const precoTxt = (max > min)
-    ? `<span style="font-size:.85rem;color:var(--muted)">a partir de</span> ${brl(min)}`
-    : brl(min);
-
-  return `
-  <article class="card">
-    <a class="card__media" href="produto.html?id=${encodeURIComponent(p.id)}" aria-label="${escapeHTML(p.nome)}">
-      <img src="${p.imagem}" alt="${escapeHTML(p.nome)}" loading="lazy"
-           onerror="this.src='assets/images/placeholder.svg'">
-      ${novo ? '<span class="card__flag">Online</span>' : ''}
-      ${est.cls === 'out' ? '<span class="card__flag card__flag--out">Esgotado</span>' : ''}
-    </a>
-    <div class="card__body">
-      <span class="card__cat">${cat}</span>
-      <h3 class="card__name"><a href="produto.html?id=${encodeURIComponent(p.id)}">${escapeHTML(p.nome)}</a></h3>
-      <div class="card__price">${precoTxt}</div>
-      <div class="card__stock card__stock--${est.cls}">${est.txt}</div>
-      <div class="card__actions">
-        <a class="btn btn--gold btn--block btn--sm"
-           href="produto.html?id=${encodeURIComponent(p.id)}"
-           ${est.cls === 'out' ? 'aria-disabled="true" tabindex="-1"' : ''}>
-          ${est.cls === 'out' ? 'Indisponível' : 'Comprar'}
-        </a>
-      </div>
-    </div>
-  </article>`;
 }
 
 function escapeHTML(s) {

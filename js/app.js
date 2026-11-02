@@ -292,6 +292,28 @@ function escapeHTML(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+/* ---------- Peça na grade (início e relacionadas) ---------- */
+function pecaHTML(p) {
+  const { min, max } = precos(p);
+  const ano = extrairAno(p.nome);
+  const est = estadoEstoque(p);
+  const selo = est === 'esgotada' ? '<span class="selo selo--esgotada">Esgotada</span>'
+             : est === 'ultima'   ? '<span class="selo selo--ultima">Última unidade</span>'
+             : '';
+  const preco = max > min ? `<small>a partir de</small> ${brl(min)}` : brl(min);
+
+  return `<a class="peca" href="produto.html?id=${encodeURIComponent(p.id)}">
+    <span class="peca__foto">
+      <img src="${escapeHTML(p.imagem)}" alt="${escapeHTML(p.nome)}" width="400" height="400" loading="lazy"
+           onerror="this.onerror=null;this.src='assets/images/placeholder.svg'">
+      ${selo}
+    </span>
+    ${ano ? `<span class="peca__ano">${ano}</span>` : ''}
+    <span class="peca__nome">${escapeHTML(p.nome)}</span>
+    <span class="peca__preco">${preco}</span>
+  </a>`;
+}
+
 /* ---------- Inicialização ---------- */
 document.addEventListener('DOMContentLoaded', () => {
   montarCasca();

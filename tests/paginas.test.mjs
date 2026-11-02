@@ -97,3 +97,36 @@ test('início: se o catálogo não carregar, mostra aviso com link da Shopee', o
     assert.ok(html.includes('class="empty"') && html.includes('shopee.com.br'));
   } finally { bloquearCatalogo = false; }
 });
+
+/* ---------- Página da peça ---------- */
+const catalogo = JSON.parse(fs.readFileSync(path.join(RAIZ, 'catalog.json'), 'utf8'));
+const semNbsp = s => s.replace(/\u00a0|&nbsp;/g, ' ');
+
+test('peça: mostra ano, nome, faixa de preço, variações e link direto da Shopee', opts, async () => {
+  const html = semNbsp(await dom('/produto.html?id=19799075820'));
+  assert.ok(html.includes('class="prod__ano">1896<'));
+  assert.ok(html.includes('40 Réis 1896 Original'));
+  assert.ok(html.includes('R$ 5.795,00'));
+  assert.equal((html.match(/name="variacao"/g) || []).length, 2);
+  assert.ok(!/<button[^>]*id="add"[^>]*disabled/.test(html));
+  assert.ok(html.includes('i.486896133.19799075820'), 'o link da Shopee deve apontar para a peça');
+});
+
+test('peça: mostra 4 peças relacionadas', opts, async () => {
+  const html = await dom('/produto.html?id=19799075820');
+  const rel = html.split('id="relacionados"')[1] || '';
+  assert.equal((rel.match(/<a class="peca"/g) || []).length, 4);
+});
+
+test('peça esgotada: botão de carrinho desabilitado', opts, async () => {
+  const esgotada = catalogo.find(p => p.estoque_total === 0);
+  const html = await dom('/produto.html?id=' + esgotada.id);
+  assert.ok(/<button[^>]*id="add"[^>]*disabled/.test(html));
+});
+
+test('peça: sem id ou com id inexistente leva de volta ao catálogo', opts, async () => {
+  for (const url of ['/produto.html', '/produto.html?id=0000']) {
+    const html = await dom(url);
+    assert.ok(html.includes('class="empty"') && html.includes('href="index.html"'), url);
+  }
+});

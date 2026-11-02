@@ -107,7 +107,8 @@ test('peça: mostra ano, nome, faixa de preço, variações e link direto da Sho
   assert.ok(html.includes('class="prod__ano">1896<'));
   assert.ok(html.includes('40 Réis 1896 Original'));
   assert.ok(html.includes('R$ 5.795,00'));
-  assert.equal((html.match(/name="variacao"/g) || []).length, 2);
+  assert.equal((html.match(/<label class="var-opt( is-on| is-off)*">/g) || []).length, 2);
+  assert.ok(html.includes('2 variações'), 'plural correto de variações');
   assert.ok(!/<button[^>]*id="add"[^>]*disabled/.test(html));
   assert.ok(html.includes('i.486896133.19799075820'), 'o link da Shopee deve apontar para a peça');
 });

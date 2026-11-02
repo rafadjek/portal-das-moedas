@@ -190,7 +190,7 @@ function render() {
 
       <div class="prod__meta">
         <div><span>Tipo</span><strong>${grupo}</strong></div>
-        <div><span>Itens</span><strong>${temVar ? vs.length + ' variação' + (vs.length > 1 ? 'ões' : '') : 'Peça única'}</strong></div>
+        <div><span>Itens</span><strong>${temVar ? vs.length + (vs.length > 1 ? ' variações' : ' variação') : 'Peça única'}</strong></div>
         <div><span>Disponibilidade</span><strong>${estoqueTotal(p)} un.</strong></div>
       </div>
 

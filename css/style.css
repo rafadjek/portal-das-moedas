@@ -123,7 +123,8 @@ h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); }
 
 .crumb { display: flex; align-items: center; gap: .5rem; font-size: .88rem; color: var(--cinza); padding: 1rem 0; }
 .crumb a:hover { color: var(--verdete); text-decoration: underline; }
-.crumb span { color: var(--linha); }
+.crumb span:not([id]) { color: var(--cinza); }
+#crumbAtual { color: var(--grafite); }
 
 /* ---------- Botões ---------- */
 .btn {

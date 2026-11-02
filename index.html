@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MundoMoedas — Moedas Antigas do Brasil, Cédulas e Coleções</title>
-<meta name="description" content="Mais que moedas, são pedaços da nossa história. Peças autênticas selecionadas com rigor para colecionadores e apaixonados por numismática. Império, República e Brasil.">
+<title>MundoMoedas — Moedas antigas, cédulas e lotes do Brasil e do mundo</title>
+<meta name="description" content="Moedas de réis e cruzeiros, cédulas, peças de prata e lotes, com foto real de cada peça. Escolha pelo ano e compre pela Shopee ou pelo WhatsApp.">
 <meta name="keywords" content="moedas antigas, moedas brasileiras, numismática, cédulas antigas, colecionar moedas, moedas de réis, moedas de cruzeiros, moedas império, moedas república">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://mundomoedas.com.br/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="MundoMoedas">
-<meta property="og:title" content="MundoMoedas — Moedas Antigas do Brasil">
+<meta property="og:title" content="MundoMoedas — Moedas antigas, cédulas e lotes">
 <meta property="og:description" content="Mais que moedas, são pedaços da nossa história.">
 <meta property="og:image" content="https://mundomoedas.com.br/assets/images/logo.svg">
 <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
@@ -20,293 +20,54 @@
 </head>
 <body>
 
-<!-- ============ TOPO ============ -->
-<div class="topbar">
-  <div class="wrap topbar__in">
-    <span>Frete para todo o Brasil &middot; Pagamento facilitado</span>
-    <span><a href="como-comprar.html">Como comprar</a></span>
-  </div>
-</div>
+<header id="topo" class="header"></header>
 
-<!-- ============ HEADER ============ -->
-<header class="header">
-  <div class="wrap header__in">
-    <a href="index.html" class="logo" aria-label="MundoMoedas — página inicial">
-      <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
-      <span class="logo__text">
-        <span class="logo__name">Mundo<span>Moedas</span></span>
-        <span class="logo__tag">História em cada moeda</span>
-      </span>
-    </a>
+<main>
+  <h1 class="sr-only">MundoMoedas: moedas antigas, cédulas e lotes</h1>
 
-    <nav class="nav" data-nav aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="catalogo.html">Moedas</a>
-      <a href="catalogo.html?cat=colecoes">Coleções</a>
-      <a href="catalogo.html?cat=cedulas">Cédulas</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="contato.html">Contato</a>
-    </nav>
-
-    <div class="header__actions">
-      <a href="catalogo.html" class="icon-btn" aria-label="Buscar produtos">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round">
-          <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
-        </svg>
-      </a>
-      <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
-        </svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </a>
-      <button class="burger" data-burger aria-label="Abrir menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-          <path d="M3 6h18M3 12h18M3 18h18"/>
-        </svg>
-      </button>
+  <section class="filtros" aria-label="Filtros do catálogo">
+    <div class="wrap filtros__in">
+      <div class="chips" id="chips" role="group" aria-label="Tipo de peça"></div>
+      <label class="ordem">
+        <span>Ordenar</span>
+        <select id="ordem">
+          <option value="destaques">Destaques</option>
+          <option value="menor">Menor preço</option>
+          <option value="maior">Maior preço</option>
+          <option value="antigas">Mais antigas</option>
+        </select>
+      </label>
     </div>
-  </div>
-</header>
+  </section>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="wrap hero__in">
-    <div>
-      <span class="eyebrow">Moedas que contam histórias</span>
-      <h1 class="hero__title">Mundo<span>Moedas</span></h1>
-      <p class="hero__sub">Mais que moedas, são pedaços da nossa história.</p>
-      <p class="hero__note">Peças autênticas, selecionadas com rigor, para colecionadores e apaixonados por numismática.</p>
-      <div class="hero__cta">
-        <a href="catalogo.html" class="btn btn--gold">
-          Encontre sua peça
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="sobre.html" class="btn btn--ghost-light">Nossa história</a>
-      </div>
-    </div>
-
-    <div class="hero__art" aria-hidden="true">
-      <div class="hero__coin">
-        <span class="hero__coin-txt">BRASIL</span>
-        <span class="hero__coin-yr">1889</span>
-      </div>
-    </div>
+  <div class="wrap lema">
+    <span>Mais que moedas, são pedaços da nossa história.</span>
+    <span id="contagem" aria-live="polite"></span>
   </div>
 
-  <aside class="hero__aside">
-    <p>Do Império<br>à República,<br>do Brasil<br>ao mundo.</p>
-  </aside>
-</section>
+  <div id="grade" aria-busy="true">
+    <div class="peca"><div class="peca__foto skeleton"></div></div>
+    <div class="peca"><div class="peca__foto skeleton"></div></div>
+    <div class="peca"><div class="peca__foto skeleton"></div></div>
+    <div class="peca"><div class="peca__foto skeleton"></div></div>
+    <div class="peca"><div class="peca__foto skeleton"></div></div>
+  </div>
+</main>
 
-<!-- ============ DESTAQUE BUSCA ============ -->
-<section class="busca-destaque">
+<section class="brinde">
   <div class="wrap">
-    <div class="busca-destaque__title">Encontre sua peça</div>
-    <div class="busca-destaque__txt">
-      Busque por nome, ano, categoria ou valor. Temos moedas do Império, da República,
-      cédulas, coleções, lotes e acessórios — tudo selecionado com rigor para você.
-    </div>
-    <a href="catalogo.html" class="busca-destaque__btn">
-      Ir para a busca
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
+    <h2>Brinde exclusivo para você!</h2>
+    <p>Compre qualquer produto na nossa <strong>loja da Shopee</strong>, abra o chat e envie a mensagem:</p>
+    <div class="brinde__code">"Vim pelo site MundoMoedas"</div>
+    <p>Você ganha um <strong>brinde surpresa</strong> na sua próxima compra!</p>
+    <a href="https://shopee.com.br/shop/486896133" class="btn btn--marfim" target="_blank" rel="noopener">Ir para a Shopee</a>
   </div>
 </section>
 
-<!-- ============ CATEGORIAS ============ -->
-<section class="catbar">
-  <div class="wrap">
-    <div class="catbar__grid">
-      <a class="catbar__item" href="catalogo.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>
-        <strong>Moedas do Brasil</strong><span>Imperiais e Republicanas</span>
-      </a>
-      <a class="catbar__item" href="catalogo.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg>
-        <strong>Moedas Antigas</strong><span>Brasil e Mundo</span>
-      </a>
-      <a class="catbar__item" href="catalogo.html?cat=ouro">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v10l8 5 8-5V7z"/><path d="m4 7 8 5 8-5M12 12v10"/></svg>
-        <strong>Moedas de Ouro</strong><span>Investimento e Coleção</span>
-      </a>
-      <a class="catbar__item" href="catalogo.html?cat=comemorativas">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
-        <strong>Comemorativas</strong><span>Edição Especial</span>
-      </a>
-      <a class="catbar__item" href="catalogo.html?cat=acessorios">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v8l-9 5-9-5V8l9-5z"/><path d="m3 8 9 5 9-5M12 13v10"/></svg>
-        <strong>Acessórios</strong><span>Álbuns e Estojos</span>
-      </a>
-    </div>
-  </div>
-</section>
+<footer id="rodape" class="footer"></footer>
 
-<!-- ============ DESTAQUES ============ -->
-<section class="section">
-  <div class="wrap">
-    <div class="sechead">
-      <div class="sechead__title">
-        <span class="eyebrow">Destaques</span>
-        <h2>Peças selecionadas<br>para colecionadores</h2>
-      </div>
-      <a href="catalogo.html" class="link-more">
-        Ver todos os produtos
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-
-    <div class="grid-prod" id="destaques" aria-busy="true">
-      <div class="skeleton" style="height:330px"></div>
-      <div class="skeleton" style="height:330px"></div>
-      <div class="skeleton" style="height:330px"></div>
-      <div class="skeleton" style="height:330px"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SELOS ============ -->
-<section class="trustbar">
-  <div class="wrap">
-    <div class="trustbar__grid">
-      <div class="trust__item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5.5v6c0 5 3.4 9.4 8 10.5 4.6-1.1 8-5.5 8-10.5v-6z"/><path d="m9 12 2 2 4-4"/></svg>
-        <div><strong>Produtos Autênticos</strong><span>Procedência garantida</span></div>
-      </div>
-      <div class="trust__item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v13H1zM14 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="17.5" cy="18.5" r="2"/></svg>
-        <div><strong>Entrega Segura</strong><span>Em todo o Brasil</span></div>
-      </div>
-      <div class="trust__item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-        <div><strong>Pagamento Facilitado</strong><span>Diversas opções</span></div>
-      </div>
-      <div class="trust__item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2-5.5-2.9-5.5 2.9 1-6.2L3 9.6l6.2-.9z"/></svg>
-        <div><strong>Atendimento Especializado</strong><span>Tire suas dúvidas</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CTA ============ -->
-<section class="cta">
-  <div class="wrap cta__in">
-    <div>
-      <h2 class="cta__title">Sua próxima<br>moeda especial <span>está aqui.</span></h2>
-      <p class="cta__text">Explore nossa seleção e encontre a peça ideal para sua coleção. Cada moeda carrega uma história — a próxima é a sua.</p>
-      <a href="catalogo.html" class="btn btn--gold">
-        Ver coleções
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-    </div>
-    <div aria-hidden="true">
-      <div class="hero__coin" style="animation:none">
-        <span class="hero__coin-txt">REPÚBLICA</span>
-        <span class="hero__coin-yr">1927</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BANNER PROMOCIONAL SHOPEE ============ -->
-<section class="promo-banner">
-  <div class="wrap">
-    <div class="promo-banner__title">Brinde exclusivo para você!</div>
-    <div class="promo-banner__txt">
-      Compre qualquer produto na nossa <strong>loja da Shopee</strong>, abra o chat e envie a mensagem:
-    </div>
-    <div class="promo-banner__code">"Vim pelo site MundoMoedas"</div>
-    <div class="promo-banner__txt" style="margin-bottom:0;">
-      Você ganha um <strong>brinde surpresa</strong> na sua próxima compra!
-    </div>
-    <a href="https://shopee.com.br/shop/486896133" class="promo-banner__btn" target="_blank" rel="noopener">
-      Ir para a Shopee
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </a>
-  </div>
-</section>
-
-<!-- ============ RODAPÉ ============ -->
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer__grid">
-      <div>
-        <a href="index.html" class="logo">
-          <img src="assets/images/logo.svg" alt="" class="logo__mark" width="46" height="46">
-          <span class="logo__text">
-            <span class="logo__name">Mundo<span>Moedas</span></span>
-            <span class="logo__tag">História em cada moeda</span>
-          </span>
-        </a>
-        <p class="footer__about">
-          Peças selecionadas com rigor para quem coleciona. Do Império à República,
-          do Brasil ao mundo.
-        </p>
-      </div>
-
-      <div>
-        <h4>Categorias</h4>
-        <a href="catalogo.html">Moedas do Brasil</a>
-        <a href="catalogo.html?cat=cedulas">Cédulas</a>
-        <a href="catalogo.html?cat=colecoes">Coleções e Lotes</a>
-        <a href="catalogo.html?cat=ouro">Moedas de Ouro</a>
-        <a href="catalogo.html?cat=acessorios">Acessórios</a>
-      </div>
-
-      <div>
-        <h4>Institucional</h4>
-        <a href="sobre.html">Sobre nós</a>
-        <a href="como-comprar.html">Como comprar</a>
-        <a href="contato.html">Contato</a>
-        <a href="carrinho.html">Meu carrinho</a>
-      </div>
-
-      <div>
-        <h4>Atendimento</h4>
-        <a href="https://shopee.com.br/shop/486896133" target="_blank" rel="noopener">Loja na Shopee</a>
-        <a href="#" data-whatsapp>Pedir pelo WhatsApp</a>
-        <a href="mailto:contato@mundomoedas.com.br">contato@mundomoedas.com.br</a>
-        <p style="margin-top:1rem;color:var(--muted);font-size:.85rem">Seg a Sex, 9h às 18h</p>
-      </div>
-    </div>
-
-    <div class="footer__bottom">
-      <span>© <span id="ano"></span> MundoMoedas. Todos os direitos reservados.</span>
-      <span>Do Império à República, do Brasil ao mundo.</span>
-    </div>
-  </div>
-</footer>
-
+<script src="js/logica.js"></script>
 <script src="js/app.js"></script>
-<script>
-document.getElementById('ano').textContent = new Date().getFullYear();
-
-(async () => {
-  const alvo = document.getElementById('destaques');
-  const prods = await carregarCatalogo();
-
-  if (!prods.length) {
-    alvo.innerHTML = '<p class="lead">Não foi possível carregar o catálogo.</p>';
-    alvo.removeAttribute('aria-busy');
-    return;
-  }
-
-  // Destaques: online, com estoque, ordenados por peça mais cara
-  const marcas = prods
-    .filter(p => p.publico_match === 'SIM' && estoqueTotal(p) > 0)
-    .sort((a, b) => precos(b).max - precos(a).max)
-    .slice(0, 8);
-
-  // Se online for pouco, completa com os mais valiosos disponíveis
-  const extras = prods
-    .filter(p => p.publico_match !== 'SIM' && estoqueTotal(p) > 0)
-    .sort((a, b) => precos(b).max - precos(a).max)
-    .slice(0, Math.max(0, 8 - marcas.length));
-
-  alvo.innerHTML = [...marcas, ...extras].map(cardHTML).join('');
-  alvo.removeAttribute('aria-busy');
-})();
-</script>
+<script src="js/bandeja.js"></script>
 </body>
 </html>

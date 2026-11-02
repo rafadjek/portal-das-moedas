@@ -131,3 +131,34 @@ test('peça: sem id ou com id inexistente leva de volta ao catálogo', opts, asy
     assert.ok(html.includes('class="empty"') && html.includes('href="index.html"'), url);
   }
 });
+
+/* ---------- catalogo.html (página antiga) e sitemap ---------- */
+test('catalogo.html leva à página inicial e traduz o ?cat= antigo', opts, async () => {
+  const casos = [
+    ['/catalogo.html?cat=cedulas', 'data-grupo="cedulas" aria-pressed="true"'],
+    ['/catalogo.html?cat=colecoes', 'data-grupo="lotes" aria-pressed="true"'],
+    ['/catalogo.html?cat=ouro', 'data-grupo="prata" aria-pressed="true"'],
+    ['/catalogo.html', 'data-grupo="" aria-pressed="true"'],
+    ['/catalogo.html?cat=acessorios', 'data-grupo="" aria-pressed="true"']
+  ];
+  for (const [url, esperado] of casos) {
+    const html = await dom(url);
+    assert.ok(html.includes('id="grade"') && html.includes(esperado), url);
+  }
+});
+
+test('catalogo.html não é indexado e aponta a página inicial como canônica', () => {
+  const html = fs.readFileSync(path.join(RAIZ, 'catalogo.html'), 'utf8');
+  assert.ok(html.includes('name="robots" content="noindex"'));
+  assert.ok(html.includes('rel="canonical" href="https://mundomoedas.com.br/"'));
+});
+
+test('sitemap lista as páginas atuais e não o catalogo.html', () => {
+  const xml = fs.readFileSync(path.join(RAIZ, 'sitemap.xml'), 'utf8');
+  assert.ok(!xml.includes('catalogo.html'));
+  for (const p of ['https://mundomoedas.com.br/', 'sobre.html', 'como-comprar.html', 'contato.html']) {
+    assert.ok(xml.includes(p), p);
+  }
+  const datas = [...xml.matchAll(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/g)].map(m => m[1]);
+  assert.ok(datas.length >= 4 && datas.every(d => d >= '2026-11-02'), 'lastmod atualizado para o novo visual');
+});

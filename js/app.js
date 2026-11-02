@@ -91,11 +91,20 @@ const Cart = {
     return Cart.read().reduce((s, i) => s + (i.preco * i.qtd), 0);
   },
 
+  _ultimo: null,
+
   updateBadge() {
     const n = Cart.count();
+    const subiu = Cart._ultimo !== null && n > Cart._ultimo;
+    Cart._ultimo = n;
     document.querySelectorAll('[data-cart-count]').forEach(el => {
       el.textContent = n > 99 ? '99+' : n;
       el.hidden = n === 0;
+      if (subiu) {
+        el.classList.remove('pulsa');
+        void el.offsetWidth;
+        el.classList.add('pulsa');
+      }
     });
   },
 
@@ -163,6 +172,69 @@ const Toast = {
   }
 };
 
+/* ---------- Cabeçalho e rodapé (definidos uma só vez, usados em todas as páginas) ---------- */
+function montarCasca() {
+  const topo = document.getElementById('topo');
+  if (topo) {
+    topo.innerHTML = `
+    <div class="wrap header__in">
+      <a href="index.html" class="logo" aria-label="MundoMoedas — página inicial">
+        <img src="assets/images/logo.svg" alt="" class="logo__mark" width="36" height="36">
+        <span class="logo__name">MundoMoedas</span>
+      </a>
+
+      <form class="busca" action="index.html" method="get" role="search">
+        <label class="sr-only" for="busca">Buscar peça por nome ou ano</label>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="busca" name="q" placeholder="Buscar por nome ou ano" autocomplete="off">
+      </form>
+
+      <nav class="nav" data-nav aria-label="Navegação principal">
+        <a href="sobre.html">Sobre</a>
+        <a href="como-comprar.html">Como comprar</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+
+      <div class="header__actions">
+        <a href="carrinho.html" class="icon-btn" aria-label="Carrinho">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" data-cart-count hidden>0</span>
+        </a>
+        <button class="burger" data-burger aria-label="Abrir menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>`;
+  }
+
+  const rodape = document.getElementById('rodape');
+  if (rodape) {
+    rodape.innerHTML = `
+    <div class="wrap footer__in">
+      <div>
+        <span class="footer__nome">MundoMoedas</span>
+        <p class="footer__about">Peças selecionadas com rigor para quem coleciona. Do Império à República, do Brasil ao mundo.</p>
+      </div>
+      <div>
+        <h4>Loja</h4>
+        <a href="index.html">Todas as peças</a>
+        <a href="como-comprar.html">Como comprar</a>
+        <a href="sobre.html">Sobre nós</a>
+        <a href="carrinho.html">Meu carrinho</a>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <a href="${LOJA.shopee}" target="_blank" rel="noopener">Loja na Shopee</a>
+        <a href="#" data-whatsapp>Pedir pelo WhatsApp</a>
+        <a href="contato.html">Contato</a>
+        <a href="mailto:${LOJA.email}">${LOJA.email}</a>
+        <p class="footer__hora">Seg a Sex, 9h às 18h</p>
+      </div>
+    </div>
+    <div class="wrap footer__bottom">© ${new Date().getFullYear()} MundoMoedas. Todos os direitos reservados.</div>`;
+  }
+}
+
 /* ---------- Header / navegação ---------- */
 function initHeader() {
   const burger = document.querySelector('[data-burger]');
@@ -220,17 +292,9 @@ function escapeHTML(s) {
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
-/* ---------- Detecção mobile ---------- */
-function detectMobile() {
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-    || (window.innerWidth <= 768 && 'ontouchstart' in window);
-  if (isMobile) document.body.classList.add('is-mobile');
-  return isMobile;
-}
-
 /* ---------- Inicialização ---------- */
 document.addEventListener('DOMContentLoaded', () => {
-  detectMobile();
+  montarCasca();
   initHeader();
   document.querySelectorAll('[data-whatsapp]').forEach(b => {
     b.addEventListener('click', ev => {

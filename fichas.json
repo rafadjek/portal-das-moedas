@@ -1,0 +1,650 @@
+{
+ "22918810615": {
+  "numista": 14493,
+  "material": "Prata",
+  "peso": "8 g",
+  "diametro": "26 mm"
+ },
+ "23912110973": {
+  "numista": 16637,
+  "material": "Aço inoxidável",
+  "peso": "4,7 g",
+  "diametro": "22 mm"
+ },
+ "22718811041": {
+  "numista": 10104,
+  "material": "Prata",
+  "peso": "5 g",
+  "diametro": "22 mm"
+ },
+ "22515611562": {
+  "numista": 10864,
+  "material": "Bronze",
+  "peso": "12 g",
+  "diametro": "30 mm"
+ },
+ "20969011580": {
+  "numista": 2241,
+  "material": "Aço inoxidável",
+  "peso": "5,3 g",
+  "diametro": "24 mm"
+ },
+ "22815512416": {
+  "numista": 25127,
+  "material": "Bronze-alumínio",
+  "peso": "5 g",
+  "diametro": "21 mm"
+ },
+ "22112112556": {
+  "numista": 3538,
+  "material": "Aço inoxidável",
+  "peso": "6,06 g",
+  "diametro": "27 mm"
+ },
+ "23915613053": {
+  "numista": 9634,
+  "material": "Bronze",
+  "peso": "7 g",
+  "diametro": "25 mm"
+ },
+ "17891813499": {
+  "numista": 6132,
+  "material": "Bronze-alumínio",
+  "peso": "8 g",
+  "diametro": "27 mm"
+ },
+ "12998013561": {
+  "numista": 9368,
+  "material": "Alumínio",
+  "peso": "1,02 g",
+  "diametro": "17,41 mm"
+ },
+ "18970314238": {
+  "numista": 6775,
+  "material": "Cuproníquel",
+  "peso": "12 g",
+  "diametro": "30 mm"
+ },
+ "18170314890": {
+  "numista": 2249,
+  "material": "Cuproníquel",
+  "peso": "5,5 g",
+  "diametro": "23 mm"
+ },
+ "23015815414": {
+  "numista": 4334,
+  "material": "Cuproníquel",
+  "peso": "7,8 g",
+  "diametro": "25 mm"
+ },
+ "20569016109": {
+  "numista": 2821,
+  "material": "Aço inoxidável",
+  "peso": "2,6 g",
+  "diametro": "21 mm"
+ },
+ "20869016691": {
+  "numista": 2821,
+  "material": "Aço inoxidável",
+  "peso": "2,6 g",
+  "diametro": "21 mm"
+ },
+ "23215817649": {
+  "numista": 5377,
+  "material": "Cuproníquel",
+  "peso": "4,4 g",
+  "diametro": "21 mm"
+ },
+ "23015818323": {
+  "numista": 2250,
+  "material": "Cuproníquel",
+  "peso": "8 g",
+  "diametro": "25 mm"
+ },
+ "22915618359": {
+  "numista": 3875,
+  "material": "Bronze",
+  "peso": "7 g",
+  "diametro": "25 mm"
+ },
+ "22712118398": {
+  "numista": 4696,
+  "material": "Aço inoxidável",
+  "peso": "5,21 g",
+  "diametro": "25 mm"
+ },
+ "23115818470": {
+  "numista": 10242,
+  "material": "Cuproníquel",
+  "peso": "2,53 g",
+  "diametro": "16,87 mm"
+ },
+ "22812119380": {
+  "numista": 3509,
+  "material": "Aço inoxidável",
+  "peso": "4,38 g",
+  "diametro": "23 mm"
+ },
+ "18971821142": {
+  "numista": 6775,
+  "material": "Cuproníquel",
+  "peso": "12 g",
+  "diametro": "30 mm"
+ },
+ "23112121737": {
+  "numista": 3758,
+  "material": "Aço inoxidável",
+  "peso": "3,65 g",
+  "diametro": "21 mm"
+ },
+ "23715522249": {
+  "numista": 20883,
+  "material": "Cuproníquel",
+  "peso": "2,88 g",
+  "diametro": "17,22 mm"
+ },
+ "23212122319": {
+  "numista": 4051,
+  "material": "Aço inoxidável",
+  "peso": "2,05 g",
+  "diametro": "17 mm"
+ },
+ "23815822502": {
+  "numista": 6774,
+  "material": "Cuproníquel",
+  "peso": "3 g",
+  "diametro": "17 mm"
+ },
+ "22315824002": {
+  "numista": 4040,
+  "material": "Cuproníquel",
+  "peso": "4,95 g",
+  "diametro": "21,3 mm"
+ },
+ "22915824017": {
+  "numista": 9077,
+  "material": "Cuproníquel",
+  "peso": "4,5 g",
+  "diametro": "20 mm"
+ },
+ "19196924334": {
+  "numista": 13026,
+  "material": "Prata",
+  "peso": "18 g",
+  "diametro": "34 mm"
+ },
+ "23812127777": {
+  "numista": 3759,
+  "material": "Aço inoxidável",
+  "peso": "1,81 g",
+  "diametro": "16 mm"
+ },
+ "22112131770": {
+  "numista": 5387,
+  "material": "Aço inoxidável",
+  "peso": "1,6 g",
+  "diametro": "15 mm"
+ },
+ "22412133378": {
+  "numista": 10252,
+  "material": "Aço inoxidável",
+  "peso": "2,55 g",
+  "diametro": "19 mm"
+ },
+ "18971734793": {
+  "numista": 7725,
+  "material": "Níquel",
+  "peso": "10,08 g",
+  "diametro": "29 mm"
+ },
+ "16191840021": {
+  "numista": 1018,
+  "material": "Bronze-alumínio",
+  "peso": "8 g",
+  "diametro": "25 mm"
+ },
+ "16291840030": {
+  "numista": 1018,
+  "material": "Bronze-alumínio",
+  "peso": "8 g",
+  "diametro": "25 mm"
+ },
+ "16591840033": {
+  "numista": 14494,
+  "material": "Bronze-alumínio",
+  "peso": "8,62 g",
+  "diametro": "26 mm"
+ },
+ "17591840123": {
+  "numista": 3874,
+  "material": "Bronze",
+  "peso": "3,5 g",
+  "diametro": "20 mm"
+ },
+ "23112140755": {
+  "numista": 5385,
+  "material": "Aço inoxidável",
+  "peso": "6,1 g",
+  "diametro": "26 mm"
+ },
+ "21471342605": {
+  "numista": 14489,
+  "material": "Prata",
+  "peso": "20 g",
+  "diametro": "33 mm"
+ },
+ "21371543466": {
+  "numista": 4334,
+  "material": "Cuproníquel",
+  "peso": "7,8 g",
+  "diametro": "25 mm"
+ },
+ "22735644609": {
+  "numista": 3879,
+  "material": "Cuproníquel",
+  "peso": "15 g",
+  "diametro": "32 mm"
+ },
+ "22012145863": {
+  "numista": 2576,
+  "material": "Aço inoxidável",
+  "peso": "4,56 g",
+  "diametro": "22 mm"
+ },
+ "22915548033": {
+  "numista": 957,
+  "material": "Bronze-alumínio",
+  "peso": "7 g",
+  "diametro": "23 mm"
+ },
+ "22915548092": {
+  "numista": 957,
+  "material": "Bronze-alumínio",
+  "peso": "7 g",
+  "diametro": "23 mm"
+ },
+ "23215548147": {
+  "numista": 15321,
+  "material": "Cuproníquel",
+  "peso": "10 g",
+  "diametro": "27 mm"
+ },
+ "23015548567": {
+  "numista": 1018,
+  "material": "Bronze-alumínio",
+  "peso": "8 g",
+  "diametro": "25 mm"
+ },
+ "23015548615": {
+  "numista": 14498,
+  "material": "Bronze-alumínio",
+  "peso": "9 g",
+  "diametro": "27 mm"
+ },
+ "23115548778": {
+  "numista": 6132,
+  "material": "Bronze-alumínio",
+  "peso": "8 g",
+  "diametro": "27 mm"
+ },
+ "23115548831": {
+  "numista": 6132,
+  "material": "Bronze-alumínio",
+  "peso": "8 g",
+  "diametro": "27 mm"
+ },
+ "23512150899": {
+  "numista": 2247,
+  "material": "Aço inoxidável",
+  "peso": "3,25 g",
+  "diametro": "20 mm"
+ },
+ "22691151107": {
+  "numista": 3877,
+  "material": "Cuproníquel",
+  "peso": "7 g",
+  "diametro": "22 mm"
+ },
+ "23912151718": {
+  "numista": 2247,
+  "material": "Aço inoxidável",
+  "peso": "3,25 g",
+  "diametro": "20 mm"
+ },
+ "22318755337": {
+  "numista": 6131,
+  "material": "Prata",
+  "peso": "8 g",
+  "diametro": "26 mm"
+ },
+ "22298655380": {
+  "numista": 10251,
+  "material": "Bronze-alumínio",
+  "peso": "3 g",
+  "diametro": "17,2 mm"
+ },
+ "21268955999": {
+  "numista": 4980,
+  "material": "Aço inoxidável",
+  "peso": "2,26 g",
+  "diametro": "17,5 mm"
+ },
+ "22393556697": {
+  "numista": 6132,
+  "material": "Bronze-alumínio",
+  "peso": "8 g",
+  "diametro": "27 mm"
+ },
+ "22791156702": {
+  "numista": 3877,
+  "material": "Cuproníquel",
+  "peso": "7 g",
+  "diametro": "22 mm"
+ },
+ "22712157114": {
+  "numista": 2246,
+  "material": "Aço inoxidável",
+  "peso": "6,35 g",
+  "diametro": "28 mm"
+ },
+ "23012157321": {
+  "numista": 3816,
+  "material": "Aço inoxidável",
+  "peso": "2,7 g",
+  "diametro": "21 mm"
+ },
+ "22812157996": {
+  "numista": 6437,
+  "material": "Aço inoxidável",
+  "peso": "3,25 g",
+  "diametro": "19 mm"
+ },
+ "22618758360": {
+  "numista": 14484,
+  "material": "Prata",
+  "peso": "10 g",
+  "diametro": "26 mm"
+ },
+ "16491861125": {
+  "numista": 2244,
+  "material": "Cuproníquel",
+  "peso": "10,08 g",
+  "diametro": "28,01 mm"
+ },
+ "16891861649": {
+  "numista": 9636,
+  "material": "Cuproníquel",
+  "peso": "3,44 g",
+  "diametro": "18,82 mm"
+ },
+ "22611962861": {
+  "numista": 4697,
+  "material": "Aço inoxidável",
+  "peso": "3,97 g",
+  "diametro": "21,5 mm"
+ },
+ "23391863602": {
+  "numista": 5383,
+  "material": "Aço inoxidável",
+  "peso": "1,77 g",
+  "diametro": "17 mm"
+ },
+ "23911964412": {
+  "numista": 5393,
+  "material": "Aço inoxidável",
+  "peso": "3,27 g",
+  "diametro": "21 mm"
+ },
+ "19396865481": {
+  "numista": 14491,
+  "material": "Prata",
+  "peso": "7,9 g",
+  "diametro": "26 mm"
+ },
+ "18868966062": {
+  "numista": 6729,
+  "material": "Aço inoxidável",
+  "peso": "4,6 g",
+  "diametro": "23,5 mm"
+ },
+ "19268966085": {
+  "numista": 6335,
+  "material": "Aço inoxidável",
+  "peso": "2,01 g",
+  "diametro": "16,5 mm"
+ },
+ "22915466921": {
+  "numista": 5381,
+  "material": "Alumínio",
+  "peso": "2,76 g",
+  "diametro": "25,26 mm"
+ },
+ "23293266963": {
+  "numista": 14500,
+  "material": "Aço inoxidável",
+  "peso": "9,95 g",
+  "diametro": "31 mm"
+ },
+ "22111967362": {
+  "numista": 2300,
+  "material": "Aço inoxidável",
+  "peso": "2,66 g",
+  "diametro": "19 mm"
+ },
+ "23891167460": {
+  "numista": 3876,
+  "material": "Bronze",
+  "peso": "12 g",
+  "diametro": "30 mm"
+ },
+ "22212170126": {
+  "numista": 6794,
+  "material": "Aço inoxidável",
+  "peso": "1,77 g",
+  "diametro": "17 mm"
+ },
+ "22115470498": {
+  "numista": 6060,
+  "material": "Alumínio",
+  "peso": "1,42 g",
+  "diametro": "19 mm"
+ },
+ "22811973622": {
+  "numista": 6729,
+  "material": "Aço inoxidável",
+  "peso": "4,6 g",
+  "diametro": "23,5 mm"
+ },
+ "22611973640": {
+  "numista": 4527,
+  "material": "Aço inoxidável",
+  "peso": "4,36 g",
+  "diametro": "22,5 mm"
+ },
+ "22811973735": {
+  "numista": 5388,
+  "material": "Aço inoxidável",
+  "peso": "3,61 g",
+  "diametro": "20,5 mm"
+ },
+ "23011973810": {
+  "numista": 3443,
+  "material": "Aço inoxidável",
+  "peso": "2,54 g",
+  "diametro": "18,5 mm"
+ },
+ "23311973831": {
+  "numista": 5390,
+  "material": "Aço inoxidável",
+  "peso": "2,83 g",
+  "diametro": "19,5 mm"
+ },
+ "23711974174": {
+  "numista": 14154,
+  "material": "Aço inoxidável",
+  "peso": "3,92 g",
+  "diametro": "23 mm"
+ },
+ "23711974336": {
+  "numista": 9370,
+  "material": "Aço inoxidável",
+  "peso": "4,27 g",
+  "diametro": "24 mm"
+ },
+ "23608274355": {
+  "numista": 4980,
+  "material": "Aço inoxidável",
+  "peso": "2,26 g",
+  "diametro": "17,5 mm"
+ },
+ "23811974631": {
+  "numista": 5394,
+  "material": "Aço inoxidável",
+  "peso": "3,59 g",
+  "diametro": "22 mm"
+ },
+ "23911974743": {
+  "numista": 5392,
+  "material": "Aço inoxidável",
+  "peso": "2,96 g",
+  "diametro": "20 mm"
+ },
+ "19799075820": {
+  "numista": 10864,
+  "material": "Bronze",
+  "peso": "12 g",
+  "diametro": "30 mm"
+ },
+ "21997475854": {
+  "numista": 4051,
+  "material": "Aço inoxidável",
+  "peso": "2,05 g",
+  "diametro": "17 mm"
+ },
+ "19298577644": {
+  "numista": 9368,
+  "material": "Alumínio",
+  "peso": "1,02 g",
+  "diametro": "17,41 mm"
+ },
+ "20276478357": {
+  "numista": 5384,
+  "material": "Aço inoxidável",
+  "peso": "2,21 g",
+  "diametro": "19 mm"
+ },
+ "21670182798": {
+  "numista": 8195,
+  "material": "Alumínio",
+  "peso": "2,38 g",
+  "diametro": "23,23 mm"
+ },
+ "21770182808": {
+  "numista": 7874,
+  "material": "Alumínio",
+  "peso": "1,83 g",
+  "diametro": "21,07 mm"
+ },
+ "18098583792": {
+  "numista": 9368,
+  "material": "Alumínio",
+  "peso": "1,02 g",
+  "diametro": "17,41 mm"
+ },
+ "18871685072": {
+  "numista": 8852,
+  "material": "Cuproníquel",
+  "peso": "10,25 g",
+  "diametro": "29 mm"
+ },
+ "20668986746": {
+  "numista": 5386,
+  "material": "Aço inoxidável",
+  "peso": "3,65 g",
+  "diametro": "21 mm"
+ },
+ "18270186971": {
+  "numista": 4332,
+  "material": "Cuproníquel",
+  "peso": "15 g",
+  "diametro": "32 mm"
+ },
+ "18868986992": {
+  "numista": 4052,
+  "material": "Aço inoxidável",
+  "peso": "2,05 g",
+  "diametro": "17 mm"
+ },
+ "58216192591": {
+  "numista": 10105,
+  "material": "Bronze-alumínio",
+  "peso": "3,95 g",
+  "diametro": "22,73 mm"
+ },
+ "20899092716": {
+  "numista": 5389,
+  "material": "Aço inoxidável",
+  "peso": "2,55 g",
+  "diametro": "18,9 mm"
+ },
+ "21699492783": {
+  "numista": 6335,
+  "material": "Aço inoxidável",
+  "peso": "2,01 g",
+  "diametro": "16,5 mm"
+ },
+ "19897496372": {
+  "numista": 9634,
+  "material": "Bronze",
+  "peso": "7 g",
+  "diametro": "25 mm"
+ },
+ "18970198569": {
+  "numista": 14496,
+  "material": "Cuproníquel",
+  "peso": "3,9 g",
+  "diametro": "19 mm"
+ },
+ "16091502219": {
+  "numista": 5391,
+  "material": "Aço inoxidável",
+  "peso": "2,38 g",
+  "diametro": "18 mm"
+ },
+ "23615805648": {
+  "numista": 9635,
+  "material": "Cuproníquel",
+  "peso": "2 g",
+  "diametro": "15,5 mm"
+ },
+ "13598001727": {
+  "numista": 2245,
+  "material": "Cuproníquel",
+  "peso": "6 g",
+  "diametro": "23 mm"
+ },
+ "23315504720": {
+  "numista": 6060,
+  "material": "Alumínio",
+  "peso": "1,42 g",
+  "diametro": "19 mm"
+ },
+ "20497809889": {
+  "numista": 14155,
+  "material": "Aço inoxidável",
+  "peso": "9,95 g",
+  "diametro": "31 mm"
+ },
+ "18070204554": {
+  "numista": 10105,
+  "material": "Bronze-alumínio",
+  "peso": "3,95 g",
+  "diametro": "22,73 mm"
+ },
+ "23318809201": {
+  "numista": 4335,
+  "material": "Prata",
+  "peso": "10 g",
+  "diametro": "27,5 mm"
+ }
+}

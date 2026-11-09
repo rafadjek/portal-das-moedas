@@ -26,6 +26,7 @@
   .prod__meta { display:flex; gap:1.75rem; flex-wrap:wrap; padding:1rem 0; border-top:1px solid var(--linha); border-bottom:1px solid var(--linha); margin-bottom:1.75rem; }
   .prod__meta div span { display:block; font-size:.85rem; color:var(--cinza); margin-bottom:.1rem; }
   .prod__meta div strong { font-size:1rem; }
+  .prod__meta--ficha { border-top:0; margin-top:-1.75rem; }
 
   .bloco { margin-bottom:1.75rem; }
   .bloco h3 { font-family:var(--font-body); font-size:1rem; font-weight:700; margin-bottom:.7rem; }
@@ -113,6 +114,15 @@
 <script>
 let PROD = null;
 let QTD  = 1;
+let FICHA = null; // material, peso e diâmetro (catálogo Numista), de fichas.json
+
+async function carregarFicha(id) {
+  try {
+    const r = await fetch('./fichas.json', { cache: 'no-cache' });
+    if (!r.ok) return null;
+    return (await r.json())[id] || null;
+  } catch { return null; } // sem ficha, a página segue igual
+}
 
 (async () => {
   const id = new URLSearchParams(location.search).get('id');
@@ -137,6 +147,7 @@ let QTD  = 1;
   const md = document.querySelector('meta[name="description"]');
   if (md) md.setAttribute('content', PROD.nome.slice(0, 155));
 
+  FICHA = await carregarFicha(PROD.id);
   render();
   box.removeAttribute('aria-busy');
   relacionados(todos);
@@ -193,6 +204,11 @@ function render() {
         <div><span>Itens</span><strong>${temVar ? vs.length + (vs.length > 1 ? ' variações' : ' variação') : 'Peça única'}</strong></div>
         <div><span>Disponibilidade</span><strong>${estoqueTotal(p)} un.</strong></div>
       </div>
+      ${FICHA ? `<div class="prod__meta prod__meta--ficha">
+        ${FICHA.material ? `<div><span>Material</span><strong>${escapeHTML(FICHA.material)}</strong></div>` : ''}
+        ${FICHA.peso ? `<div><span>Peso</span><strong>${escapeHTML(FICHA.peso)}</strong></div>` : ''}
+        ${FICHA.diametro ? `<div><span>Diâmetro</span><strong>${escapeHTML(FICHA.diametro)}</strong></div>` : ''}
+      </div>` : ''}
 
       <div class="bloco">
         <h3>${temVar ? 'Escolha a variação' : 'Quantidade'}</h3>

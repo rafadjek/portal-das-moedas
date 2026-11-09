@@ -121,6 +121,30 @@ test('peça: mostra 4 peças relacionadas', opts, async () => {
   assert.equal((rel.match(/<a class="peca"/g) || []).length, 4);
 });
 
+test('peça: mostra só material, peso e diâmetro do Numista', opts, async () => {
+  const html = semNbsp(await dom('/produto.html?id=19799075820')); // 40 Réis 1896
+  const ficha = html.split('class="prod__meta prod__meta--ficha"')[1]?.split('</div>\n      </div>')[0] ?? '';
+  assert.ok(ficha.includes('<span>Material</span><strong>Bronze</strong>'));
+  assert.ok(ficha.includes('<span>Peso</span><strong>12 g</strong>'));
+  assert.ok(ficha.includes('<span>Diâmetro</span><strong>30 mm</strong>'));
+  assert.equal((ficha.match(/<span>/g) || []).length, 3, 'só os 3 dados');
+});
+
+test('peça sem ficha (cédula) não mostra a faixa técnica', opts, async () => {
+  const cedula = catalogo.find(p => /c[ée]dula/i.test(p.nome));
+  const html = await dom('/produto.html?id=' + cedula.id);
+  assert.ok(html.includes('class="prod__title"') && !html.includes('class="prod__meta prod__meta--ficha"'));
+});
+
+test('fichas.json: toda ficha aponta para uma peça do catálogo e tem os 3 dados', () => {
+  const fichas = JSON.parse(fs.readFileSync(path.join(RAIZ, 'fichas.json'), 'utf8'));
+  const ids = new Set(catalogo.map(p => String(p.id)));
+  for (const [id, f] of Object.entries(fichas)) {
+    assert.ok(ids.has(id), `ficha órfã ${id}`);
+    assert.ok(f.material && /^\d+(,\d+)? g$/.test(f.peso) && /^\d+(,\d+)? mm$/.test(f.diametro), `ficha incompleta ${id}`);
+  }
+});
+
 test('peça esgotada: botão de carrinho desabilitado', opts, async () => {
   const esgotada = catalogo.find(p => p.estoque_total === 0);
   const html = await dom('/produto.html?id=' + esgotada.id);

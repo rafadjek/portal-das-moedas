@@ -123,7 +123,8 @@ test('peça: mostra 4 peças relacionadas', opts, async () => {
 
 test('peça: mostra só material, peso e diâmetro do Numista', opts, async () => {
   const html = semNbsp(await dom('/produto.html?id=19799075820')); // 40 Réis 1896
-  const ficha = html.split('class="prod__meta prod__meta--ficha"')[1]?.split('class="bloco"')[0] ?? '';
+  const conteudo = html.split('id="conteudo"')[1]?.split('<script')[0] ?? '';
+  const ficha = conteudo.split('class="prod__meta prod__meta--ficha"')[1]?.split('class="bloco"')[0] ?? '';
   assert.ok(ficha.includes('<span>Material</span><strong>Bronze</strong>'));
   assert.ok(ficha.includes('<span>Peso</span><strong>12 g</strong>'));
   assert.ok(ficha.includes('<span>Diâmetro</span><strong>30 mm</strong>'));
@@ -134,7 +135,8 @@ test('peça sem ficha (cédula) não mostra a faixa técnica', opts, async () =>
   const cedula = catalogo.find(p => /c[ée]dula/i.test(p.nome));
   const html = await dom('/produto.html?id=' + cedula.id);
   assert.ok(html.includes('prod__title'), 'página da cédula carregou');
-  assert.ok(!html.includes('class="prod__meta prod__meta--ficha"'), 'cédula sem faixa técnica');
+  // o modelo também aparece no <script> da página (com ${...}); só conta o que foi preenchido
+  assert.ok(!/<span>Material<\/span><strong>[^$]/.test(html), 'cédula sem faixa técnica');
 });
 
 test('fichas.json: toda ficha aponta para uma peça do catálogo e tem os 3 dados', () => {

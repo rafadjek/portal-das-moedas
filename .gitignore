@@ -10,10 +10,13 @@
 *.key
 *.jks
 *.keystore
+*.pfx
+*.p12
 *token*.json
 *service-account*.json
 *credential*
 *secret*
+!*secretaria*
 *senha*
 *password*
 *ntrip*

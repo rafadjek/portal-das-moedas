@@ -1,0 +1,23 @@
+
+# Segredos e chaves (nunca subir) - padrao comum dos projetos do Rafael
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+.wrangler/
+*.pem
+*.key
+*.jks
+*.keystore
+*token*.json
+*service-account*.json
+*credential*
+*secret*
+*senha*
+*password*
+*ntrip*
+
+# Arquivos do Windows / Google Drive
+desktop.ini
+Thumbs.db
